@@ -13,16 +13,22 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
-# Application definition
-
-INSTALLED_APPS = (
+# Applications
+# Split up, combined at end of file into INSTALLED_APPS
+DEFAULT_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'south'
+)
+
+THIRD_PARTY_APPS = (
+    'south',
+)
+
+LOCAL_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
@@ -79,3 +85,6 @@ except ImportError:
     TEMPLATE_DEBUG = True
 
     ALLOWED_HOSTS = []
+
+# Production environment can append / remove from each
+INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
