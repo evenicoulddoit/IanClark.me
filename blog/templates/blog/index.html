@@ -1,0 +1,69 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html ng-app="ianClarkApp">
+  <head>
+    <title>Ian Clark</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{% static "css/main.css" %}" rel="stylesheet">
+  </head>
+  <body ng-controller="blogCtrl">
+    <header>
+      <div class="wrapper">
+        <div id="logo">
+          Ian<strong>Clark</strong>
+        </div>
+        <nav ng-class="{active: active}">
+          <a id="nav-toggle" ng-click="active = !active" class="fa fa-bars"></a>
+          <ul>
+            <li>Blog</li>
+            <li>Work</li>
+            <li>About</li>
+          </ul>
+        </nav>
+        <ul id="socials">
+          <li>
+            <a href="//facebook.com/evenicoulddoitid" id="social-fb" class="fa fa-facebook"></a>
+          </li>
+          <li>
+            <a href="//twitter.com/evenicoulddoit" id="social-twitter" class="fa fa-twitter"></a>
+          </li>
+          <li>
+            <a href="//stackoverflow.com/users/1773904" id="social-so" class="fa fa-stack-overflow"></a>
+          </li>
+        </ul>
+      </div>
+      <div id="header-divider">
+        <div class="swatch-1"></div>
+        <div class="swatch-2"></div>
+        <div class="swatch-3"></div>
+        <div class="swatch-4"></div>
+      </div>
+    </header>
+    <main ng-click="active = false">
+      <div class="wrapper">
+        <h1>Writing my first Django website</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras condimentum tempor est, nec rutrum odio luctus non. Nunc euismod et magna vel aliquet. Duis sodales dapibus eros, vitae ultrices ante molestie quis. Aliquam dapibus consectetur urna non blandit. Sed eleifend interdum magna. Nullam accumsan sem sodales sem suscipit sollicitudin. Sed dui sapien, sodales nec metus in, congue varius eros.</p>
+        <p>Nulla facilisi. Proin suscipit aliquam faucibus. Integer ullamcorper porttitor accumsan. Donec mollis semper pellentesque. Etiam vehicula tempus ligula vel imperdiet. Phasellus at feugiat justo. Fusce quis nisi mauris.</p>
+        <h2>But why on earth would you do it?</h2>
+        <p>Nulla sit amet metus ac dolor ornare viverra quis non est. Suspendisse et augue id tellus gravida vulputate. Vestibulum mattis non lectus id facilisis. Nulla posuere, ligula id sodales lacinia, magna libero semper lectus, a semper ligula dui eget diam. Quisque in augue varius, hendrerit purus id, interdum erat. Suspendisse tristique odio justo, id egestas augue luctus sit amet. Nunc mauris lorem, varius consequat dui ut, pulvinar pharetra elit. Integer felis tortor, mattis ut blandit eu, feugiat a nibh. Integer hendrerit, tortor eu porttitor sodales, dui purus molestie tellus, ac rhoncus augue magna sit amet lectus. Sed vitae orci nec nisi tristique bibendum. Duis blandit turpis eget venenatis convallis. Quisque cursus urna a malesuada ultricies. Phasellus commodo ligula lacus, a luctus erat semper ut. Nam posuere pellentesque lectus, ut suscipit purus faucibus consequat. Phasellus at justo neque.</p>
+        <p>Nunc elementum a leo id scelerisque. Proin ultrices mi vitae mi viverra, ac semper orci congue. Fusce blandit nunc nec tortor ornare pellentesque. Quisque at pellentesque tellus, at consequat ligula. Aliquam non augue a lacus rutrum egestas. Nam mattis urna a fringilla vulputate. Morbi condimentum ante vulputate scelerisque malesuada. Proin nulla enim, convallis vitae mi sed, sollicitudin sodales nibh. Mauris auctor vitae neque nec faucibus. Morbi non quam at velit adipiscing tincidunt vitae at dolor. Praesent sed orci quam. Integer feugiat hendrerit nunc eget blandit.</p>
+        <h2>Oh great! Where do I sign up?</h2>
+        <p>Nullam nunc lacus, commodo ut venenatis at, dignissim quis enim. Pellentesque ornare tincidunt magna, id varius purus egestas quis. Aliquam scelerisque sem eu leo tincidunt tempor ac euismod diam. Aliquam risus felis, ullamcorper sit amet sapien malesuada, ultricies fringilla augue. Vestibulum lacus diam, scelerisque in tempus sit amet, rhoncus ut velit. Nam venenatis aliquam quam, id laoreet sapien ornare quis. Donec fermentum, eros non mattis auctor, sapien tellus imperdiet lectus, mollis vulputate nisi quam vel sapien.</p>
+      </div>
+    </main>
+    <footer>
+      <div class="wrapper">
+        Footer
+      </div>
+    </footer>
+    <script src="http://livejs.com/live.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+    <script>
+      var ianClarkApp = angular.module('ianClarkApp', []);
+
+      ianClarkApp.controller('blogCtrl', function ($scope) {
+      });
+    </script>
+  </body>
+</html>

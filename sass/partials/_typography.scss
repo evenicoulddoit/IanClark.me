@@ -1,0 +1,49 @@
+/**
+ * Font face declarations
+ */
+@font-face {
+  font-family: 'Crete Round';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Crete Round'), local('CreteRound-Regular'), url(http://themes.googleusercontent.com/static/fonts/creteround/v3/ZCcPJiCGOzh84o2siPk48YbN6UDyHWBl620a-IRfuBk.woff) format('woff');
+}
+@font-face {
+  font-family: 'Droid Serif';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Droid Serif'), local('DroidSerif'), url(http://themes.googleusercontent.com/static/fonts/droidserif/v4/0AKsP294HTD-nvJgucYTaIbN6UDyHWBl620a-IRfuBk.woff) format('woff');
+}
+@font-face {
+  font-family: 'Droid Serif';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Droid Serif Bold'), local('DroidSerif-Bold'), url(http://themes.googleusercontent.com/static/fonts/droidserif/v4/QQt14e8dY39u-eYBZmppwTqR_3kx9_hJXbbyU8S6IN0.woff) format('woff');
+}
+
+/**
+ * !!Win Chrome font rendering sucks on anything but SVG
+ */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'Crete Round';
+    font-weight: 400;
+    src: url('../font/creteround.svg') format('svg');
+  }
+  @font-face {
+    font-family: 'Droid Serif';
+    font-weight: 400;
+    src: url('../font/droidserif.svg') format('svg');
+  }
+  @font-face {
+    font-family: 'Droid Serif';
+    font-weight: 700;
+    src: url('../font/droidserif-bold.svg') format('svg');
+  }
+}
+
+::selection {
+  background: rgba($color_palette_5, 0.3);
+}
+::-moz-selection {
+  background: rgba($color_palette_5, 0.3);
+}

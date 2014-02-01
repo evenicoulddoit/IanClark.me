@@ -1,0 +1,22 @@
+// Color declarations
+$color_light: #F6F6F6;
+$color_dark: #222;
+
+$color_palette_1: #334d5c; // Deep blue
+$color_palette_2: #45B29D; // Turquoise
+$color_palette_3: #EFC94C; // Yellow
+$color_palette_4: #E27A3F; // Orange
+$color_palette_5: #DF5A49; // Red
+
+// Text
+$color_plaintext: $color_dark;
+$color_links: $color_palette_1;
+
+// Locations
+$color_header_bg: $color_palette_1;
+$color_header_font: $color_light;
+
+$color_body_bg: lighten($color_dark, 50%);
+
+$color_footer_bg: darken($color_header_bg, 12%);
+$color_footer_font: $color_light;

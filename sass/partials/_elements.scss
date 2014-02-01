@@ -1,0 +1,32 @@
+/**
+ * Default element behaviours
+ */
+body {
+  background: $color_footer_bg;
+  color: $color_plaintext;
+  font-family: $font_type_primary;
+  font-size: $font_size_base;
+}
+
+p {
+  line-height: 1.5;
+  margin: 0 0 $font_size_base * 1.5;
+}
+
+h1, h2 {
+  line-height: 1.25;
+}
+
+h1 {
+  font-family: $font_type_emphasis;
+  font-size: $font_size_base * 1.8;
+  margin: 0 0 $font_size_base * .25;
+  color: $color_plaintext;
+}
+
+h2 {
+  font-family: $font_type_emphasis;
+  font-size: $font_size_base * 1.2;
+  margin: 0 0 $font_size_base * .25;
+  color: $color_plaintext;
+}

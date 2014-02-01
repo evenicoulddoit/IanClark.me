@@ -1,0 +1,13 @@
+/**
+ * Main content declarations
+ * Under mobile viewport 
+ */
+main {
+  margin: 70px 0 0; /* Fixed header size */
+  padding: $font_size_base 0;
+  background: url(../img/noise.png);
+
+  @media screen and (min-width:$break_tablet) {
+    margin: 0;
+  }
+}

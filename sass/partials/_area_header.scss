@@ -1,0 +1,214 @@
+/**
+ * Content for the header section.
+ * This includes both the logo and navigation. 
+ * A mobile-first approach has been taken.
+ */
+header {
+  background: $color_header_bg;
+  color: $color_header_font;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  .wrapper {
+    @include pie-clearfix;
+    padding: 0;
+
+    @media screen and (min-width:$break_tablet) {
+      padding: 0 20px;
+    }
+  }
+
+  @media screen and (min-width:$break_tablet) {
+    line-height: 60px;
+    position: static;
+  }
+
+  ul, li {
+    display: inline-block;
+    list-style: none;
+  }
+}
+
+/**
+ * Tablet or larger, all header elements floated
+ */
+#logo, nav, #socials {
+  @media screen and (min-width:$break_tablet) {
+    vertical-align: top;
+    float: left;
+  }
+}
+
+#logo {
+  text-align: center;
+  line-height: 60px;
+  font-family: "Droid Serif";
+  font-weight: 400;
+  font-size: $font_size_base*1.5;
+  -webkit-font-smoothing: antialiased;
+
+  strong { font-weight: 700; }
+
+  @media screen and (min-width:$break_tablet) {
+    text-align: left;
+    font-size: $font_size_base*1.5;
+    margin-right: 30px;
+  }
+}
+
+/**
+ * Navigation toggle for mobile viewport
+ */ 
+#nav-toggle {
+  color: darken($color_light, 12%);
+  vertical-align: middle;
+  position: absolute;
+  line-height: 1em;
+  padding: 10px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  vertical-align: top;
+  cursor: pointer;
+  @include border-radius(3px);
+  background: darken($color_header_bg, 12%);
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  @media screen and (min-width:$break_tablet) {
+    display: none;
+  }
+}
+
+nav {
+  margin: 0;
+  padding: 0;
+
+  /**
+   * When under mobile viewport and the navigation is visible (active)
+   */
+  &.active {
+    ul {
+      display: block;
+      background: darken($color_header_bg, 12%);
+      border-top: 10px solid $color_light;
+    }
+
+    @media screen and (min-width:$break_tablet) {
+      ul {
+        display: inline-block;
+        border: none;
+        background: none;
+      }
+    }
+
+    #nav-toggle {
+      opacity:1;
+    }
+  }
+
+  ul {
+    display: none;
+
+    @media screen and (min-width:$break_tablet) {
+      display: inline-block;
+    }
+  }
+
+  li {
+    border-top: 1px solid rgba($color_light, 0.2);
+    padding: 15px 20px;
+    display: block;
+    font-weight: 700;
+    position: relative;
+    color: rgba($color_light, 0.7);
+    text-transform: uppercase;
+
+    &:first-child {
+      border-top: none;
+    }
+
+    &:after {
+      position: absolute;
+      right: 20px;
+      font-family: "FontAwesome";
+      content: "\f105";
+      opacity: 0.5;
+    }
+
+    @media screen and (min-width:$break_tablet) {
+      color: $color_light;
+      font-weight: 400;
+      text-transform: none;
+      display: inline-block;
+      margin-right: 20px;
+      padding: 0;
+      border-top: none;
+
+
+      &:after {
+        content: "";
+      }
+    }
+  }
+}
+
+#socials {
+  display: none;
+
+  @media screen and (min-width:$break_tablet) {
+    display: inherit;
+    float: right;
+  }
+
+  li {
+    a {
+      color: $color_light;
+      text-decoration: none;
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+      line-height: 40px;
+      text-align: center;
+      border-radius: 100%;
+      vertical-align: middle;
+      opacity: 0.2;
+      cursor: pointer;
+      @include single-transition(opacity, 0.25s, ease);
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+/**
+ * Individual social colours
+ */
+#social-fb { background: #3B5998; }
+#social-twitter { background: #00B0ED; }
+#social-so { background: #fE7A15; }
+
+/**
+ * Header divider, 4 equally-sized swatch colours
+ */
+#header-divider {
+  @include pie-clearfix;
+  
+  div {
+    float: left;
+    width: 25%;
+    height: 10px;
+  }
+
+  .swatch-1 { background: $color_palette_2; }
+  .swatch-2 { background: $color_palette_3; }
+  .swatch-3 { background: $color_palette_4; }
+  .swatch-4 { background: $color_palette_5; }
+}
