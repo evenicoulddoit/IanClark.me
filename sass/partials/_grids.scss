@@ -1,5 +1,14 @@
-$break_desktop: 992px;
-$break_tablet: 768px;
+$bp_tall: 768px;
+$bp_grande: 992px;
+
+@mixin bp($point) {
+  @if $point == tall {
+    @media screen and (min-width: $bp_tall) { @content; }
+  }
+  @else if $point == grande {
+    @media screen and (min-width: $bp_grande) { @content; }
+  }
+}
 
 /**
  * Singularity vars. To expand on
@@ -14,8 +23,8 @@ $gutters: 1/3;
   margin:0 auto;
   padding:0 20px;
 
-  @media screen and (min-width: $break_desktop) {
-    width:$break_desktop - 20px;
+  @include bp(grande) {
+    width:$bp_grande - 20px;
     padding:0;
   }
 }

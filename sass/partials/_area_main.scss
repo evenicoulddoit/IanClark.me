@@ -7,7 +7,7 @@ main {
   padding: $font_size_base 0;
   background: url(../img/noise.png);
 
-  @media screen and (min-width:$break_tablet) {
+  @include bp(tall) {
     margin: 0;
   }
 }

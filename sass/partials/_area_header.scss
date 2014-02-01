@@ -15,12 +15,12 @@ header {
     @include pie-clearfix;
     padding: 0;
 
-    @media screen and (min-width:$break_tablet) {
+    @include bp(tall) {
       padding: 0 20px;
     }
   }
 
-  @media screen and (min-width:$break_tablet) {
+  @include bp(tall) {
     line-height: 60px;
     position: static;
   }
@@ -35,7 +35,7 @@ header {
  * Tablet or larger, all header elements floated
  */
 #logo, nav, #socials {
-  @media screen and (min-width:$break_tablet) {
+  @include bp(tall) {
     vertical-align: top;
     float: left;
   }
@@ -51,7 +51,7 @@ header {
 
   strong { font-weight: 700; }
 
-  @media screen and (min-width:$break_tablet) {
+  @include bp(tall) {
     text-align: left;
     font-size: $font_size_base*1.5;
     margin-right: 30px;
@@ -80,7 +80,7 @@ header {
     opacity: 1;
   }
 
-  @media screen and (min-width:$break_tablet) {
+  @include bp(tall) {
     display: none;
   }
 }
@@ -99,7 +99,7 @@ nav {
       border-top: 10px solid $color_light;
     }
 
-    @media screen and (min-width:$break_tablet) {
+    @include bp(tall) {
       ul {
         display: inline-block;
         border: none;
@@ -115,7 +115,7 @@ nav {
   ul {
     display: none;
 
-    @media screen and (min-width:$break_tablet) {
+    @include bp(tall) {
       display: inline-block;
     }
   }
@@ -141,7 +141,7 @@ nav {
       opacity: 0.5;
     }
 
-    @media screen and (min-width:$break_tablet) {
+    @include bp(tall) {
       color: $color_light;
       font-weight: 400;
       text-transform: none;
@@ -161,7 +161,7 @@ nav {
 #socials {
   display: none;
 
-  @media screen and (min-width:$break_tablet) {
+  @include bp(tall) {
     display: inherit;
     float: right;
   }
