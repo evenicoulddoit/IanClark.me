@@ -12,6 +12,15 @@ header {
   right: 0;
   z-index: 10;
 
+  a {
+    color: $color_header_font;
+    text-decoration: none;
+
+    &:hover {
+      color: darken($color_header_font, 20%);
+    }
+  }
+
   .wrapper {
     @include pie-clearfix;
     padding: 0;
@@ -43,6 +52,7 @@ header {
 }
 
 #logo {
+  display: block;
   text-align: center;
   line-height: 60px;
   font-family: "Droid Serif";
