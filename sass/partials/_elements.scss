@@ -18,8 +18,10 @@ p {
   margin: 0 0 1.5em;
 }
 
-h1, h2 {
+h1,
+h2 {
   line-height: 1.25;
+  font-weight: 400;
 }
 
 h1 {
@@ -34,4 +36,16 @@ h2 {
   font-size: 1.2em;
   margin: 0 0 0.25em;
   color: $color_plaintext;
+}
+
+strong {
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
+
+img {
+  max-width: 100%;
 }
