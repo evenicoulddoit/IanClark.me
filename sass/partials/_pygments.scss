@@ -1,0 +1,136 @@
+/**
+  Adapted by Ian Clark into Sass from:
+
+  Name:       Base16 Ocean Dark
+  Author:     Chris Kempson (http://chriskempson.com)
+
+  Pygments template by Jan T. Sott (https://github.com/idleberg)
+  Created with Base16 Builder by Chris Kempson (https://github.com/chriskempson/base16-builder)
+*/
+
+
+// Colour variables
+$pyg_bg: #2b303b;
+$pyg_col_primary: #eff1f5;
+$pyg_col_hll: #4f5b66;
+$pyg_col_linenos: #757A84;
+
+$pyg_col_swatch_1: #65737e;
+$pyg_col_swatch_2: #bf616a;
+$pyg_col_swatch_3: #b48ead;
+$pyg_col_swatch_4: #d08770;
+$pyg_col_swatch_5: #96b5b4;
+$pyg_col_swatch_6: #a3be8c;
+$pyg_col_swatch_7: #ebcb8b;
+$pyg_col_swatch_8: #8fa1b3;
+
+.code-snippettable {
+  background: $pyg_bg;
+  color: $pyg_col_primary;
+  font-family: $font_type_code;
+  width: 100%;
+  border-radius: 4px;
+  line-height: 1.5;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    content:"";
+    height:5px;
+    display:block;
+  }
+
+  td.linenos {
+    display:none;
+
+    @include bp(tall) {
+      @include user-select(none);
+      display: table-cell;
+      color: $pyg_col_linenos;
+      width: 52px;
+      text-align: center;
+    }
+  }
+
+  td.code {
+    padding:0 10px;
+
+    @include bp(tall) {
+      padding:0;
+    }
+  }
+
+  ::selection {
+  background: rgba(#FFF, 0.2);
+  }
+  ::-moz-selection {
+    background: rgba(#FFF, 0.2);
+  }
+}
+
+.code-snippet {
+  .hll { background-color: $pyg_col_hll }
+  .c { color: $pyg_col_swatch_1 } /* Comment */
+  .err { color: $pyg_col_swatch_2 } /* Error */
+  .k { color: $pyg_col_swatch_3 } /* Keyword */
+  .l { color: $pyg_col_swatch_4 } /* Literal */
+  .n { color: $pyg_col_primary } /* Name */
+  .o { color: $pyg_col_swatch_5 } /* Operator */
+  .p { color: $pyg_col_primary } /* Punctuation */
+  .cm { color: $pyg_col_swatch_1 } /* Comment.Multiline */
+  .cp { color: $pyg_col_swatch_1 } /* Comment.Preproc */
+  .c1 { color: $pyg_col_swatch_1 } /* Comment.Single */
+  .cs { color: $pyg_col_swatch_1 } /* Comment.Special */
+  .gd { color: $pyg_col_swatch_2 } /* Generic.Deleted */
+  .ge { font-style: italic } /* Generic.Emph */
+  .gh { color: $pyg_col_primary; font-weight: bold } /* Generic.Heading */
+  .gi { color: $pyg_col_swatch_6 } /* Generic.Inserted */
+  .gp { color: $pyg_col_swatch_1; font-weight: bold } /* Generic.Prompt */
+  .gs { font-weight: bold } /* Generic.Strong */
+  .gu { color: $pyg_col_swatch_5; font-weight: bold } /* Generic.Subheading */
+  .kc { color: $pyg_col_swatch_3 } /* Keyword.Constant */
+  .kd { color: $pyg_col_swatch_3 } /* Keyword.Declaration */
+  .kn { color: $pyg_col_swatch_5 } /* Keyword.Namespace */
+  .kp { color: $pyg_col_swatch_3 } /* Keyword.Pseudo */
+  .kr { color: $pyg_col_swatch_3 } /* Keyword.Reserved */
+  .kt { color: $pyg_col_swatch_7 } /* Keyword.Type */
+  .ld { color: $pyg_col_swatch_6 } /* Literal.Date */
+  .m { color: $pyg_col_swatch_4 } /* Literal.Number */
+  .s { color: $pyg_col_swatch_6 } /* Literal.String */
+  .na { color: $pyg_col_swatch_8 } /* Name.Attribute */
+  .nb { color: $pyg_col_primary } /* Name.Builtin */
+  .nc { color: $pyg_col_swatch_7 } /* Name.Class */
+  .no { color: $pyg_col_swatch_2 } /* Name.Constant */
+  .nd { color: $pyg_col_swatch_5 } /* Name.Decorator */
+  .ni { color: $pyg_col_primary } /* Name.Entity */
+  .ne { color: $pyg_col_swatch_2 } /* Name.Exception */
+  .nf { color: $pyg_col_swatch_8 } /* Name.Function */
+  .nl { color: $pyg_col_primary } /* Name.Label */
+  .nn { color: $pyg_col_swatch_7 } /* Name.Namespace */
+  .nx { color: $pyg_col_swatch_8 } /* Name.Other */
+  .py { color: $pyg_col_primary } /* Name.Property */
+  .nt { color: $pyg_col_swatch_5 } /* Name.Tag */
+  .nv { color: $pyg_col_swatch_2 } /* Name.Variable */
+  .ow { color: $pyg_col_swatch_5 } /* Operator.Word */
+  .w { color: $pyg_col_primary } /* Text.Whitespace */
+  .mf { color: $pyg_col_swatch_4 } /* Literal.Number.Float */
+  .mh { color: $pyg_col_swatch_4 } /* Literal.Number.Hex */
+  .mi { color: $pyg_col_swatch_4 } /* Literal.Number.Integer */
+  .mo { color: $pyg_col_swatch_4 } /* Literal.Number.Oct */
+  .sb { color: $pyg_col_swatch_6 } /* Literal.String.Backtick */
+  .sc { color: $pyg_col_primary } /* Literal.String.Char */
+  .sd { color: $pyg_col_swatch_1 } /* Literal.String.Doc */
+  .s2 { color: $pyg_col_swatch_6 } /* Literal.String.Double */
+  .se { color: $pyg_col_swatch_4 } /* Literal.String.Escape */
+  .sh { color: $pyg_col_swatch_6 } /* Literal.String.Heredoc */
+  .si { color: $pyg_col_swatch_4 } /* Literal.String.Interpol */
+  .sx { color: $pyg_col_swatch_6 } /* Literal.String.Other */
+  .sr { color: $pyg_col_swatch_6 } /* Literal.String.Regex */
+  .s1 { color: $pyg_col_swatch_6 } /* Literal.String.Single */
+  .ss { color: $pyg_col_swatch_6 } /* Literal.String.Symbol */
+  .bp { color: $pyg_col_primary } /* Name.Builtin.Pseudo */
+  .vc { color: $pyg_col_swatch_2 } /* Name.Variable.Class */
+  .vg { color: $pyg_col_swatch_2 } /* Name.Variable.Global */
+  .vi { color: $pyg_col_swatch_2 } /* Name.Variable.Instance */
+  .il { color: $pyg_col_swatch_4 } /* Literal.Number.Integer.Long */
+}

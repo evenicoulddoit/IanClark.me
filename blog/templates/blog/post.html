@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load blog_markdown %}
+
+{% block title%}Blog{% endblock %}
+{% block main %}
+  <div id="blog-post">
+    <h1>{{ post.title }}</h1>
+    {{ post.content|blog_markdown }}
+  </div>
+{% endblock %}
