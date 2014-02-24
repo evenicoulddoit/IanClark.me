@@ -1,9 +1,18 @@
 /**
  * Footer content declarations
  */
+
+#footer-fix {
+  min-height: 100%;
+}
+
 footer {
+  @include box-sizing(border-box);
   background: $color_footer_bg;
   color: $color_footer_font;
-  padding: $font_size_base * 2 5px;
+  padding: $font_size_base  5px;
   vertical-align: middle;
+  position: relative;
+  margin-top: -$footer_height;
+  height: $footer_height;
 }

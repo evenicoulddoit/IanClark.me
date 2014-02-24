@@ -46,14 +46,14 @@ header {
   line-height: 60px;
   font-family: "Droid Serif";
   font-weight: 400;
-  font-size: $font_size_base*1.5;
+  font-size: 1.5em;
   -webkit-font-smoothing: antialiased;
 
   strong { font-weight: 700; }
 
   @include bp(tall) {
     text-align: left;
-    font-size: $font_size_base*1.5;
+    font-size: 1.5em;
     margin-right: 30px;
   }
 }

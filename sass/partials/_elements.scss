@@ -1,8 +1,13 @@
 /**
  * Default element behaviours
  */
+
+html, body {
+  height: 100%;
+}
+
 body {
-  background: $color_footer_bg;
+  background: url(../img/noise.png);
   color: $color_plaintext;
   font-family: $font_type_primary;
   font-size: $font_size_base;
@@ -10,7 +15,7 @@ body {
 
 p {
   line-height: 1.5;
-  margin: 0 0 $font_size_base * 1.5;
+  margin: 0 0 1.5em;
 }
 
 h1, h2 {
@@ -19,14 +24,14 @@ h1, h2 {
 
 h1 {
   font-family: $font_type_emphasis;
-  font-size: $font_size_base * 1.8;
-  margin: 0 0 $font_size_base * .25;
+  font-size: 1.8em;
+  margin: 0 0 0.25em;
   color: $color_plaintext;
 }
 
 h2 {
   font-family: $font_type_emphasis;
-  font-size: $font_size_base * 1.2;
-  margin: 0 0 $font_size_base * .25;
+  font-size: 1.2em;
+  margin: 0 0 0.25em;
   color: $color_plaintext;
 }

@@ -2,12 +2,12 @@
  * Main content declarations
  * Under mobile viewport 
  */
+
 main {
-  margin: 70px 0 0; /* Fixed header size */
-  padding: $font_size_base 0;
-  background: url(../img/noise.png);
+  padding: (70px + $font_size_base) 0 ($footer_height + 20px); /* Fixed header */
+  overflow: auto;
 
   @include bp(tall) {
-    margin: 0;
+    padding-top: $font_size_base;
   }
 }
