@@ -38,6 +38,14 @@ h2 {
   color: $color_plaintext;
 }
 
+a {
+  color: $color_palette_4;
+
+  &:hover {
+    color: $color_palette_5;
+  }
+}
+
 strong {
   font-weight: 700;
 }
