@@ -31,7 +31,7 @@ header {
   }
 
   @include bp(tall) {
-    line-height: 60px;
+    line-height: $header_height;
     position: static;
   }
 
@@ -54,8 +54,8 @@ header {
 #logo {
   display: block;
   text-align: center;
-  height: 60px;
-  line-height: 60px;
+  height: $header_height;
+  line-height: $header_height;
   font-family: "Droid Serif";
   font-weight: 400;
   margin: 0;
