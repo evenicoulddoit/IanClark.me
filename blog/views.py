@@ -4,7 +4,7 @@ from django.shortcuts import render, render_to_response, get_object_or_404
 from blog.models import Post
 
 def index(request):
-    posts = Post.objects.all()
+    posts = Post.objects.filter(published=True)
     page_title = "Blog"
     page_url = reverse('blog.views.index')
     return render(request, 'blog/index.html', locals())
