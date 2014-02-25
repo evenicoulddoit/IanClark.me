@@ -1,12 +1,30 @@
 {% extends "base.html" %}
 {% load blog_markdown %}
+{% load staticfiles %}
 
 {% block title%}
 {{ post.title }}
 {% endblock %}
 {% block main %}
   <div id="blog-post">
-    <h1>{{ post.title }}</h1>
-    {{ post.content|blog_markdown }}
+    <div id="post-overview">
+      <div id="post-keyfacts">
+        <h1 id="post-title">{{ post.title }}</h1>
+        <div id="post-date">
+          Posted on: {{ post.created|date:"M d, Y" }}
+        </div>
+      </div>
+      <div id="post-author">
+        <img alt="Picture of the author" src="{% static 'img/me.jpg' %}" />
+      </div>
+    </div>
+    <div id="post-content">
+      {{ post.content|blog_markdown }}
+    </div>
+    <div id="post-tags">
+      {% for tag in post.get_tags %}
+        <div class="tag">{{ tag }}</div>
+      {% endfor %}
+    </div>
   </div>
 {% endblock %}
