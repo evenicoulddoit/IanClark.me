@@ -4,9 +4,12 @@
 {% block main %}
   <h1>Blog</h1>
   <h2>All Posts</h2>
+  {% if not posts %}
+  No posts found
+  {% endif %}
   {% for post in posts %}
     <a href="{{ post.get_absolute_url }}">
       {{ post.title }}
-    </a>
+    </a> <br />
   {% endfor %}
 {% endblock %}
