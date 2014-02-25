@@ -8,7 +8,7 @@
 
 footer {
   @include box-sizing(border-box);
-  background: $color_footer_bg;
+  background-color: $color_footer_bg;
   color: $color_footer_font;
   padding: $font_size_base  5px;
   vertical-align: middle;

@@ -4,7 +4,7 @@
  * A mobile-first approach has been taken.
  */
 header {
-  background: $color_header_bg;
+  background-color: $color_header_bg;
   color: $color_header_font;
   position: fixed;
   top: 0;
@@ -93,7 +93,7 @@ header {
   vertical-align: top;
   cursor: pointer;
   @include border-radius(3px);
-  background: darken($color_header_bg, 12%);
+  background-color: darken($color_header_bg, 12%);
   opacity: 0.8;
 
   &:hover {
@@ -115,7 +115,7 @@ nav {
   &.active {
     ul {
       display: block;
-      background: darken($color_header_bg, 12%);
+      background-color: darken($color_header_bg, 12%);
       border-top: 10px solid $color_light;
     }
 
@@ -211,9 +211,9 @@ nav {
 /**
  * Individual social colours
  */
-#social-fb { background: #3B5998; }
-#social-twitter { background: #00B0ED; }
-#social-so { background: #fE7A15; }
+#social-fb { background-color: #3B5998; }
+#social-twitter { background-color: #00B0ED; }
+#social-so { background-color: #fE7A15; }
 
 /**
  * Header divider, 4 equally-sized swatch colours
@@ -227,8 +227,8 @@ nav {
     height: 10px;
   }
 
-  .swatch-1 { background: $color_palette_2; }
-  .swatch-2 { background: $color_palette_3; }
-  .swatch-3 { background: $color_palette_4; }
-  .swatch-4 { background: $color_palette_5; }
+  .swatch-1 { background-color: $color_palette_2; }
+  .swatch-2 { background-color: $color_palette_3; }
+  .swatch-3 { background-color: $color_palette_4; }
+  .swatch-4 { background-color: $color_palette_5; }
 }
