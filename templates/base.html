@@ -1,6 +1,6 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html ng-app="ianClarkApp">
+<html lang="en" dir="ltr" ng-app="ianClarkApp">
   <head>
     {% with home_url="http://www.ianclark.me" default_title="Home" default_description="Personal website of web developer Ian Clark." %}
       <title>{{ page_title|default:default_title }} - Ian Clark</title>
@@ -42,7 +42,7 @@
       {% block header %}
       <header>
         <div class="wrapper">
-          <h1 id="logo" itemtype="http://schema.org/Person">
+          <h1 id="logo" itemscope itemtype="http://schema.org/Person">
             <a href="/" itemprop="name">
               <span class="name-part" itemprop="givenName">Ian</span>
               <strong class="name-part" itemprop="familyName">Clark</strong>
