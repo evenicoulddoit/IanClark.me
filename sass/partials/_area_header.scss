@@ -54,16 +54,17 @@ header {
 #logo {
   display: block;
   text-align: center;
+  height: 60px;
   line-height: 60px;
   font-family: "Droid Serif";
   font-weight: 400;
-  font-size: 1.5em;
   margin: 0;
   padding: 0;
+  font-size: 0;
   -webkit-font-smoothing: antialiased;
 
-  .name-part {
-    float: left;
+  span, strong {
+    font-size: 1.5rem;
   }
 
   strong {
@@ -73,7 +74,6 @@ header {
 
   @include bp(tall) {
     text-align: left;
-    font-size: 1.5em;
     margin-right: 30px;
   }
 }
