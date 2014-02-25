@@ -42,9 +42,10 @@
       {% block header %}
       <header>
         <div class="wrapper">
-          <h1 id="logo">
-            <a href="/">
-              Ian<strong>Clark</strong>
+          <h1 id="logo" itemtype="http://schema.org/Person">
+            <a href="/" itemprop="name">
+              <span class="name-part" itemprop="givenName">Ian</span>
+              <strong class="name-part" itemprop="familyName">Clark</strong>
             </a>
           </h1>
           <nav ng-class="{active: active}">

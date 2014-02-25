@@ -62,7 +62,14 @@ header {
   padding: 0;
   -webkit-font-smoothing: antialiased;
 
-  strong { font-weight: 700; }
+  .name-part {
+    float: left;
+  }
+
+  strong {
+    display: inline-block;
+    font-weight: 700;
+  }
 
   @include bp(tall) {
     text-align: left;
