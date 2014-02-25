@@ -2,14 +2,41 @@
 <!DOCTYPE html>
 <html ng-app="ianClarkApp">
   <head>
-    <title>
-      {% block title %}Home{% endblock %}
-      - Ian Clark
-    </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
-    <link href="{% static "css/main.css" %}" rel="stylesheet">
-    {% block stylesheets %}{% endblock %}
+    {% with default_title="Home" default_description="Personal website of web developer Ian Clark." %}
+      <title>{{ page_title|default:default_title }} - Ian Clark</title>
+
+      {% if page_url %}
+        <link rel="canonical" href="http://www.ianclark.me{{ page_url }}" />
+        <meta property="og:url" content="http://www.ianclark.me{{ page_url }}">
+        <meta name="twitter:url" content="http://www.ianclark.me{{ page_url }}">
+      {% endif %}
+
+      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+      <meta property="description" content="{{ page_description|default:default_description}}">
+
+      <meta property="og:title" content="{{ page_title|default:default_title }} - Ian Clark">
+      <meta property="og:description" content="{{ page_description|default:default_description}}">
+      <meta property="og:type" content="website">
+      <meta property="og:image" content="{% static 'img/logo-square-large.png' %}">
+      <meta property="og:site_name" content="IanClark.me">
+      <meta property="fb:admins" content="evenicoulddoit">
+
+      <meta name="twitter:card" content="{{ page_description|default:default_description}}">
+      <meta name="twitter:description" content="{{ page_description|default:default_description}}">
+      <meta name="twitter:image" content="{% static 'img/logo-square-twitter.png' %}">
+      <meta name="twitter:title"
+            content="{{ page_title|default:default_title|slice:':59' }} - Ian Clark">
+
+      <meta itemprop="name" content="{{ page_title|default:default_title }} - Ian Clark">
+      <meta itemprop="description" content="{{ page_description|default:default_description}}">
+      <meta itemprop="image" content="{% static 'img/logo-square-large.png' %}">
+
+      <link href="{% static "css/main.css" %}" rel="stylesheet">
+      <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
+            rel="stylesheet">
+      {% block stylesheets %}{% endblock %}
+    {% endwith %}
   </head>
   <body ng-controller="blogCtrl">
     <div id="footer-fix">
