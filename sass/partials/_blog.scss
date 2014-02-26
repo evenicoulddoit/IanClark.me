@@ -6,7 +6,9 @@
 }
 
 #post-keyfacts {
-  float: left;
+  @include bp(tall) {
+    margin-right: 100px;
+  }
 }
 
 #post-date {

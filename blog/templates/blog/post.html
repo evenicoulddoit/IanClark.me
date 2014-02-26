@@ -8,6 +8,9 @@
 {% block main %}
   <div id="blog-post" itemscope itemtype="http://schema.org/BlogPosting">
     <div id="post-overview">
+      <div id="post-author" itemscope itemtype="http://schema.org/Person">
+        <img alt="Picture of the author" src="{% static 'img/me.jpg' %}" itemprop="image" />
+      </div>
       <div id="post-keyfacts">
         <h1 id="post-title" itemprop="headline">{{ post.title }}</h1>
         <div id="post-date">
@@ -16,9 +19,6 @@
             {{ post.created|date:"M d, Y" }}
           </span>
         </div>
-      </div>
-      <div id="post-author" itemscope itemtype="http://schema.org/Person">
-        <img alt="Picture of the author" src="{% static 'img/me.jpg' %}" itemprop="image" />
       </div>
     </div>
     <div id="post-content" itemprop="articleBody">
