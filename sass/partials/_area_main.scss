@@ -4,6 +4,7 @@
  */
 
 main {
+  display: block;
   padding: (70px + $font_size_base) 0 ($footer_height + 20px); /* Fixed header */
   overflow: auto;
 
