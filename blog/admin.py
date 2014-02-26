@@ -1,21 +1,30 @@
 import re
 
+from blog.forms import PostForm
 from blog.templatetags import blog_markdown
+
 from django.contrib import admin
 from blog.models import Post
 
 class PostAdmin(admin.ModelAdmin):
+    form = PostForm
+
     exclude = ("content_processed",)
     prepopulated_fields = {"slug": ("title",)}
     search_fields = ['title', 'description', 'content']
     list_display = ['title', 'description']
     list_filter = ['published', 'created']
 
+    class Media:
+        css = {
+            "all": ("css/blog_admin.css", )
+        }
+
     def save_model(self, request, obj, form, change):
+
         # Split the tags by any of ;,| and join again using ,. Lowercase values
         tags_processed = filter(None, re.split(r'[;,|]', obj.tags))
         tags_processed = ", ".join(tag.strip().lower() for tag in tags_processed)
-
         obj.tags = tags_processed
 
         # Process the content and cache it

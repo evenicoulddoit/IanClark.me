@@ -25,6 +25,7 @@ DEFAULT_APPS = (
 
 THIRD_PARTY_APPS = (
     'south',
+    'wmd',
 )
 
 LOCAL_APPS = (
