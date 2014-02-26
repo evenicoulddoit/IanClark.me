@@ -1,3 +1,5 @@
+from bs4 import BeautifulSoup
+
 from django.db import models
 from django.core.urlresolvers import reverse
 
@@ -18,6 +20,25 @@ class Post(models.Model):
 
     def __unicode__(self):
         return u'%s' % self.title
+
+    def get_excerpt(self):
+        """Return an excerpt of the article's content."""
+
+        if self.content_processed:
+            soup = BeautifulSoup(self.content_processed)
+
+            for tag in soup.findAll(True):
+                if tag.name == "table" and "code-snippettable" in tag.get("class", []):
+                    tag.decompose()
+                elif tag.name:
+                    tag.unwrap()
+
+            description = " ".join(soup.prettify().split())
+
+            if len(description) > 252:
+                return description[:252] + "..."
+            else:
+                return description
 
     def get_tags(self):
         return filter(None, self.tags.split(","))

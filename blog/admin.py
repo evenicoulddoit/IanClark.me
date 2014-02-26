@@ -18,6 +18,11 @@ class PostAdmin(admin.ModelAdmin):
 
         # Process the content and cache it
         obj.content_processed = blog_markdown.blog_markdown(obj.content)
+
+        # Always make sure a description is added, pull an excerpt from the content if not
+        if not obj.description.strip():
+            obj.description = obj.get_excerpt()
+
         obj.save()
 
 admin.site.register(Post, PostAdmin)
