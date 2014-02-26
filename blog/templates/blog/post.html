@@ -19,7 +19,7 @@
       </div>
     </div>
     <div id="post-content">
-      {{ post.content|blog_markdown }}
+      {{ post.content_processed|safe }}
     </div>
     <div id="post-tags">
       {% for tag in post.get_tags %}

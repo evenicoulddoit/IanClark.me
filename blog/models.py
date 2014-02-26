@@ -9,7 +9,10 @@ class Post(models.Model):
     tags = models.CharField("Tags (Comma separated)", max_length=150, blank=True)
     created = models.DateTimeField("Creation date", auto_now_add=True)
     published = models.BooleanField("Published", default=True)
+
+    # We store both the markdown content and the generated HTML for caching
     content = models.TextField()
+    content_processed = models.TextField()
 
     class Meta:
         ordering = ['-created']
