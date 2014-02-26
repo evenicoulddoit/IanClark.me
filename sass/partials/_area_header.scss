@@ -115,74 +115,106 @@ nav {
   &.active {
     ul {
       display: block;
-      background-color: darken($color_header_bg, 12%);
-      border-top: 10px solid $color_light;
     }
 
     @include bp(tall) {
       ul {
         display: inline-block;
-        border: none;
-        background: none;
       }
     }
 
     #nav-toggle {
-      opacity:1;
+      opacity: 1;
     }
   }
 
+  /**
+   * Default navigation state: Hidden on mobile, visible on larger devices
+   */
   ul {
     display: none;
+    background-color: darken($color_header_bg, 12%);
+    border-top: 10px solid $color_light;
 
     @include bp(tall) {
       display: inline-block;
+      background-color: transparent;
+      border-top: none;
+    }
+
+    /**
+     * All navigation links. Wrapped in UL as otherwise would include the toggle
+     */
+    a {
+      border-bottom: 3px solid transparent;
+      padding: 15px 20px;
+      display: block;
+      font-weight: 700;
+      position: relative;
+      color: rgba($color_light, 0.7);
+      text-transform: uppercase;
+
+      /**
+       * Mobile navigation includes 
+       */
+      &::after {
+        position: absolute;
+        right: 20px;
+        font-family: "FontAwesome";
+        content: "\f105";
+        opacity: 0.5;
+
+        @include bp(tall) {
+          display: none;
+        }
+      }
+
+      /**
+       * Special focus events for mobile view.
+       */
+      &:focus {
+        color: $color_light;
+        background-color: darken($color_header_bg, 10%);
+
+        @include bp(tall) {
+          color: darken($color_header_font, 20%);
+          background-color: transparent;
+        }
+
+        &::after {
+          content: "\f105\f105\f105";
+        }
+      }
+
+     /**
+       * Higher viewport default state
+      */
+      @include bp(tall) {
+        color: $color_light;
+        font-weight: 400;
+        text-transform: none;
+        display: inline;
+        border-top: none;
+        padding: 0 0 0.3em;
+
+        &.active {
+          border-bottom-color: rgba($color_header_font, 0.2);
+        }
+      }
     }
   }
 
   li {
     border-top: 1px solid rgba($color_light, 0.2);
-    padding: 15px 20px;
     display: block;
-    font-weight: 700;
-    position: relative;
-    color: rgba($color_light, 0.7);
-    text-transform: uppercase;
+
+    @include bp(tall) {
+      display: inline-block;
+      margin-right: 20px;
+    }
 
     &:first-child {
       border-top: none;
-    }
-
-    &:after {
-      position: absolute;
-      right: 20px;
-      font-family: "FontAwesome";
-      content: "\f105";
-      opacity: 0.5;
-    }
-
-    @include bp(tall) {
-      color: $color_light;
-      font-weight: 400;
-      text-transform: none;
-      display: inline-block;
-      margin-right: 20px;
-      padding: 0;
-      border-top: none;
-
-
-      &:after {
-        content: "";
-      }
-    }
-  }
-
-  a {
-    border-bottom: 3px solid transparent;
-    padding-bottom: 0.3em;
-
-    &.active {
-      border-bottom-color: rgba($color_header_font, 0.2);
     }
   }
 }
