@@ -61,7 +61,13 @@
                   Blog
                 </a>
               </li>
-              <li>Work</li>
+              <li>
+                {% url 'experience.views.index' as experience_url %}
+                <a href="{{ experience_url }}" {% if request.path|startswith:experience_url %}
+                   class="active "{% endif %}>
+                  Experience
+                </a>
+              </li>
               <li>
                 {% url 'about.views.index' as about_url %}
                 <a href="{{ about_url }}" {% if request.path|startswith:about_url %}
