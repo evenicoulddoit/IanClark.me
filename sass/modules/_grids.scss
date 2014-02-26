@@ -1,0 +1,17 @@
+$bp_tall: 768px;
+$bp_grande: 992px;
+
+@mixin bp($point) {
+  @if $point == tall {
+    @media screen and (min-width: $bp_tall) { @content; }
+  }
+  @else if $point == grande {
+    @media screen and (min-width: $bp_grande) { @content; }
+  }
+}
+
+/**
+ * Singularity vars. To expand on
+ */
+$grids: 6;
+$gutters: 1/3;
