@@ -1,3 +1,6 @@
+/**
+ * Individual post page styles
+ */
 #post-overview {
   @include pie-clearfix;
   padding-bottom: 0.5em;
@@ -98,15 +101,55 @@
   }
 }
 
-#post-tags {
-  .tag {
-    display: inline-block;
-    color: lighten($color_palette_1, 10%);
-    background-color: lighten($color_palette_1, 50%);
-    border: 1px solid lighten($color_palette_1, 40%);
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.9em;
-    margin-right: 2px;
+/**
+ * Index page view.
+ */
+#blog-listings {
+
+  .blog-listing {
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+    border-bottom: 2px solid rgba(200, 200, 200, 0.3);
+
+    &:last-child {
+      border-bottom: none;
+    }
   }
+
+  .blog-title,
+  .blog-date {
+    display: inline;
+  }
+
+  .blog-date {
+    margin-left: 5px;
+    line-height: 2;
+    font-size: 0.8em;
+    color: lighten($color_plaintext, 30%);
+    white-space: nowrap;
+  }
+
+  .blog-excerpt {
+    font-size: 0.9em;
+    color: lighten($color_plaintext, 20%);
+    margin-bottom: 0;
+  }
+
+  .blog-tag {
+    margin-top: 0.5em;
+  }
+}
+
+/**
+ * Common styles
+ */
+.blog-tag {
+  display: inline-block;
+  color: lighten($color_palette_1, 20%);
+  background-color: lighten($color_palette_1, 60%);
+  border: 1px solid lighten($color_palette_1, 50%);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  margin-right: 2px;
 }

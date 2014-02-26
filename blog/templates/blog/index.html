@@ -3,13 +3,33 @@
 {% block title%}Blog{% endblock %}
 {% block main %}
   <h1>Blog</h1>
-  <h2>All Posts</h2>
-  {% if not posts %}
-  No posts found
-  {% endif %}
-  {% for post in posts %}
-    <a href="{{ post.get_absolute_url }}">
-      {{ post.title }}
-    </a> <br />
-  {% endfor %}
+  <div id="blog-listings">
+    {% if not posts %}
+      No posts found
+    {% endif %}
+    {% for post in posts %}
+      <div class="blog-listing">
+        <div class="blog-keyfacts">
+          <h2 class="blog-title">
+            <a href="{{ post.get_absolute_url }}">
+              {{ post.title }}
+            </a>
+          </h2>
+          <div class="blog-date" itemprop="dateCreated">
+            {{ post.created|date:"M d, Y" }}
+          </div>
+        </div>
+        <p class="blog-excerpt">
+          {{ post.description }}
+        </p>
+        {% if post.get_tags %}
+        <div class="blog-tags">
+          {% for tag in post.get_tags %}
+            <div class="blog-tag">{{ tag }}</div>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
 {% endblock %}
