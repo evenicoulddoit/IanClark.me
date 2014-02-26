@@ -6,24 +6,27 @@
 {{ post.title }}
 {% endblock %}
 {% block main %}
-  <div id="blog-post">
+  <div id="blog-post" itemscope itemtype="http://schema.org/BlogPosting">
     <div id="post-overview">
       <div id="post-keyfacts">
-        <h1 id="post-title">{{ post.title }}</h1>
+        <h1 id="post-title" itemprop="headline">{{ post.title }}</h1>
         <div id="post-date">
-          Posted on: {{ post.created|date:"M d, Y" }}
+          Posted on:
+          <span itemprop="dateCreated">
+            {{ post.created|date:"M d, Y" }}
+          </span>
         </div>
       </div>
-      <div id="post-author">
-        <img alt="Picture of the author" src="{% static 'img/me.jpg' %}" />
+      <div id="post-author" itemscope itemtype="http://schema.org/Person">
+        <img alt="Picture of the author" src="{% static 'img/me.jpg' %}" itemprop="image" />
       </div>
     </div>
-    <div id="post-content">
+    <div id="post-content" itemprop="articleBody">
       {{ post.content_processed|safe }}
     </div>
-    <div id="post-tags">
+    <div id="post-tags" itemprop="keywords">
       {% for tag in post.get_tags %}
-        <div class="tag">{{ tag }}</div>
+        <div class="blog-tag">{{ tag }}</div>
       {% endfor %}
     </div>
   </div>
