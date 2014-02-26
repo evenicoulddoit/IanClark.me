@@ -1,6 +1,5 @@
 from django.db import models
 from django.core.urlresolvers import reverse
-import re
 
 class Post(models.Model):
     title = models.CharField("Blog title", max_length=255)
