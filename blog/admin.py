@@ -1,7 +1,8 @@
+import re
+
 from blog.templatetags import blog_markdown
 from django.contrib import admin
 from blog.models import Post
-import re
 
 class PostAdmin(admin.ModelAdmin):
     exclude = ("content_processed",)
@@ -11,6 +12,7 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ['published', 'created']
 
     def save_model(self, request, obj, form, change):
+        # Split the tags by any of ;,| and join again using ,. Lowercase values
         tags_processed = filter(None, re.split(r'[;,|]', obj.tags))
         tags_processed = ", ".join(tag.strip().lower() for tag in tags_processed)
 
