@@ -9,7 +9,9 @@
         <meta itemprop="givenName" content="Ian">
         <meta itemprop="familyName" content="Clark">
         <meta itemprop="nationality" content="British">
-        <img alt="Picture of the author" src="{% static 'img/me.jpg' %}" itemprop="image" />
+        <a href="{% url 'about.views.index' %}">
+          <img alt="Picture of the author" src="{% static 'img/me.jpg' %}" itemprop="image" />
+        </a>
       </div>
       <div id="post-keyfacts">
         <h1 id="post-title" itemprop="headline">{{ post.title }}</h1>
