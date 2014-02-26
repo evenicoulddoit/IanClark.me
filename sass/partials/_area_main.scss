@@ -10,4 +10,12 @@ main {
   @include bp(tall) {
     padding-top: $font_size_base;
   }
+
+  &.space-none {
+    padding-top: 70px;
+
+    @include bp(tall) {
+      padding-top: 0;
+    }
+  }
 }

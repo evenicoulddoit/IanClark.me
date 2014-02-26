@@ -91,11 +91,13 @@
         </div>
       </header>
       {% endblock %}
+      {% block outermain %}
       <main ng-click="active = false">
         <div class="wrapper">
           {% block main %}{% endblock %}
         </div>
       </main>
+      {% endblock %}
     </div>
     <footer>
       <div class="wrapper">
