@@ -176,6 +176,15 @@ nav {
       }
     }
   }
+
+  a {
+    border-bottom: 3px solid transparent;
+    padding-bottom: 0.3em;
+
+    &.active {
+      border-bottom-color: rgba($color_header_font, 0.2);
+    }
+  }
 }
 
 #socials {

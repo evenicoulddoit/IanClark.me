@@ -1,4 +1,6 @@
 {% load staticfiles %}
+{% load startswith %}
+
 <!DOCTYPE html>
 <html itemscope itemtype="http://schema.org/WebPage" lang="en" dir="ltr" ng-app="ianClarkApp">
   <head>
@@ -53,7 +55,11 @@
             <a id="nav-toggle" ng-click="active = !active" class="fa fa-bars"></a>
             <ul>
               <li>
-                <a href="/blog">Blog</a>
+                {% url 'blog.views.index' as blog_url %}
+                <a href="{{ blog_url }}" {% if request.path|startswith:blog_url %}
+                   class="active "{% endif %}>
+                  Blog
+                </a>
               </li>
               <li>Work</li>
               <li>About</li>
