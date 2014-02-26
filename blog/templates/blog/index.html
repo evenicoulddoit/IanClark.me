@@ -2,33 +2,33 @@
 
 {% block main %}
   <h1>Blog</h1>
-  <div id="blog-listings">
+  <section id="blog-listings" itemscope itemtype="http://schema.org/Blog">
     {% if not posts %}
       No posts found
     {% endif %}
     {% for post in posts %}
-      <div class="blog-listing">
+      <article class="blog-listing" itemscope itemtype="http://schema.org/BlogPosting">
         <div class="blog-keyfacts">
-          <h2 class="blog-title">
+          <h2 class="blog-title" itemprop="headline">
             <a href="{{ post.get_absolute_url }}">
               {{ post.title }}
             </a>
           </h2>
-          <div class="blog-date" itemprop="dateCreated">
+          <time class="blog-date" itemprop="dateCreated" datetime="{{ post.created|date:'c' }}">
             {{ post.created|date:"M d, Y" }}
-          </div>
+          </time>
         </div>
-        <p class="blog-excerpt">
+        <summary class="blog-excerpt">
           {{ post.description }}
-        </p>
+        </summary>
         {% if post.get_tags %}
-        <div class="blog-tags">
+        <div class="blog-tags" itemprop="keywords">
           {% for tag in post.get_tags %}
             <div class="blog-tag">{{ tag }}</div>
           {% endfor %}
         </div>
         {% endif %}
-      </div>
+      </article>
     {% endfor %}
-  </div>
+  </section>
 {% endblock %}
