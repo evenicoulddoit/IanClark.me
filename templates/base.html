@@ -62,7 +62,13 @@
                 </a>
               </li>
               <li>Work</li>
-              <li>About</li>
+              <li>
+                {% url 'about.views.index' as about_url %}
+                <a href="{{ blog_url }}" {% if request.path|startswith:about_url %}
+                   class="active "{% endif %}>
+                  About
+                </a>
+              </li>
             </ul>
           </nav>
           <ul id="socials">
