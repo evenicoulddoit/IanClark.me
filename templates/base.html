@@ -40,7 +40,7 @@
       {% block stylesheets %}{% endblock %}
     {% endwith %}
   </head>
-  <body ng-controller="blogCtrl">
+  <body ng-controller="BlogCtrl">
     <div id="footer-fix">
       {% block header %}
       <header>
@@ -111,12 +111,7 @@
       </div>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
-    <script>
-      var ianClarkApp = angular.module('ianClarkApp', []);
-
-      ianClarkApp.controller('blogCtrl', function ($scope) {
-      });
-    </script>
+    <script src="{% static 'js/main.min.js' %}"></script>
     {% block scripts %}{% endblock %}
   </body>
 </html>

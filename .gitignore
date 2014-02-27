@@ -3,3 +3,4 @@
 .sass-cache/*
 .bundle/*
 *.lock
+static/js/*.report.txt
