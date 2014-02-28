@@ -2,7 +2,7 @@
 {% load startswith %}
 
 <!DOCTYPE html>
-<html itemscope itemtype="http://schema.org/WebPage" lang="en" dir="ltr" ng-app="ianClarkApp">
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" dir="ltr">
   <head>
     {% with home_url="http://www.ianclark.me" default_title="Home" default_description="Personal website of web developer Ian Clark." %}
       <title>{{ page_title|default:default_title }} - Ian Clark</title>
@@ -51,8 +51,8 @@
               <strong class="name-part" itemprop="familyName">Clark</strong>
             </a>
           </h1>
-          <nav ng-class="{active: active}">
-            <a id="nav-toggle" ng-click="active = !active" class="fa fa-bars"></a>
+          <nav id="nav">
+            <a id="nav-toggle" class="fa fa-bars"></a>
             <ul>
               <li>
                 {% url 'blog.views.index' as blog_url %}
@@ -110,7 +110,7 @@
         <strong>IanClark.me</strong> Beta &mdash; More to come...
       </div>
     </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
     <script src="{% static 'js/main.min.js' %}"></script>
     {% block scripts %}{% endblock %}
   </body>
