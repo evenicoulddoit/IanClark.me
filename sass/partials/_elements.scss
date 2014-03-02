@@ -26,9 +26,17 @@ h2 {
 
 h1 {
   font-family: $font_type_emphasis;
-  font-size: 1.8em;
+  font-size: 1.4em;
   margin: 0 0 0.25em;
   color: $color_plaintext;
+
+  @include breakpoint($bp_short) {
+    font-size: 1.6em;
+  }
+
+  @include breakpoint($bp_grande) {
+    font-size: 1.8em;
+  }
 }
 
 h2 {
