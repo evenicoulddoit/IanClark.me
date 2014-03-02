@@ -13,8 +13,8 @@
   margin:0 auto;
   padding:0 20px;
 
-  @include bp(grande) {
-    width:$bp_grande - 20px;
+  @include breakpoint($bp_venti) {
+    width:$bp_venti - 20px;
     padding:0;
   }
 }

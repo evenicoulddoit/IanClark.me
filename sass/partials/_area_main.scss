@@ -8,14 +8,14 @@ main {
   padding: (70px + $font_size_base) 0 ($footer_height + 20px); /* Fixed header */
   overflow: auto;
 
-  @include bp(tall) {
+  @include breakpoint($bp_grande) {
     padding-top: $font_size_base;
   }
 
   &.space-none {
     padding-top: 70px;
 
-    @include bp(tall) {
+    @include breakpoint($bp_grande) {
       padding-top: 0;
     }
   }

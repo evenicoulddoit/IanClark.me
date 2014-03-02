@@ -22,15 +22,20 @@ header {
   }
 
   .wrapper {
+    @include box-sizing(border-box);
     @include pie-clearfix;
     padding: 0;
 
-    @include bp(tall) {
+    @include breakpoint($bp_grande) {
       padding: 0 20px;
+    }
+
+    @include breakpoint($bp_venti) {
+      padding: 0;
     }
   }
 
-  @include bp(tall) {
+  @include breakpoint($bp_grande) {
     line-height: $header_height;
     position: static;
   }
@@ -45,7 +50,7 @@ header {
  * Tablet or larger, all header elements floated
  */
 #logo, nav, #socials {
-  @include bp(tall) {
+  @include breakpoint($bp_grande) {
     vertical-align: top;
     float: left;
   }
@@ -72,7 +77,7 @@ header {
     font-weight: 700;
   }
 
-  @include bp(tall) {
+  @include breakpoint($bp_grande) {
     text-align: left;
     margin-right: 30px;
   }
@@ -100,7 +105,7 @@ header {
     opacity: 1;
   }
 
-  @include bp(tall) {
+  @include breakpoint($bp_grande) {
     display: none;
   }
 }
@@ -117,7 +122,7 @@ nav {
       display: block;
     }
 
-    @include bp(tall) {
+    @include breakpoint($bp_grande) {
       ul {
         display: inline-block;
       }
@@ -136,7 +141,7 @@ nav {
     background-color: darken($color_header_bg, 12%);
     border-top: 10px solid $color_light;
 
-    @include bp(tall) {
+    @include breakpoint($bp_grande) {
       display: inline-block;
       background-color: transparent;
       border-top: none;
@@ -164,7 +169,7 @@ nav {
         content: "\f105";
         opacity: 0.5;
 
-        @include bp(tall) {
+        @include breakpoint($bp_grande) {
           display: none;
         }
       }
@@ -176,7 +181,7 @@ nav {
         color: $color_light;
         background-color: darken($color_header_bg, 10%);
 
-        @include bp(tall) {
+        @include breakpoint($bp_grande) {
           color: darken($color_header_font, 20%);
           background-color: transparent;
         }
@@ -189,7 +194,7 @@ nav {
      /**
        * Higher viewport default state
       */
-      @include bp(tall) {
+      @include breakpoint($bp_grande) {
         color: $color_light;
         font-weight: 400;
         text-transform: none;
@@ -208,7 +213,7 @@ nav {
     border-top: 1px solid rgba($color_light, 0.2);
     display: block;
 
-    @include bp(tall) {
+    @include breakpoint($bp_grande) {
       display: inline-block;
       margin-right: 20px;
     }
@@ -222,7 +227,7 @@ nav {
 #socials {
   display: none;
 
-  @include bp(tall) {
+  @include breakpoint($bp_grande) {
     display: inherit;
     float: right;
   }

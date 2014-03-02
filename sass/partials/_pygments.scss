@@ -43,7 +43,7 @@ $pyg_col_swatch_8: #8fa1b3;
   td.linenos {
     display:none;
 
-    @include bp(tall) {
+    @include breakpoint($bp_grande) {
       @include user-select(none);
       display: table-cell;
       color: $pyg_col_linenos;
@@ -55,7 +55,7 @@ $pyg_col_swatch_8: #8fa1b3;
   td.code {
     padding:0 10px;
 
-    @include bp(tall) {
+    @include breakpoint($bp_grande) {
       padding:0;
     }
   }
