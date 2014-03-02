@@ -1,0 +1,137 @@
+@import "about_grids";
+
+#about-page {
+
+  /**
+   * Styles for all sections
+   */
+  img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 100%;
+
+    @include breakpoint($bp_tall) {
+      border:10px solid rgba($color_plaintext, 0.03);
+    }
+
+    @include breakpoint($bp_grande) {
+      max-width: none;
+    }
+  }
+
+  h1 {
+    text-align: center;
+
+    @include breakpoint ($bp_tall) {
+      text-align: inherit;
+    }
+  }
+
+  p {
+    text-align: justify;
+  }
+
+  section {
+    padding: 40px 0;
+    border-bottom: 10px solid rgba($color_palette_1, 0.2);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .section-focal,
+  .section-content {
+    @include box-sizing(border-box);
+  }
+
+  .section-focal {
+    text-align: center;
+  }
+
+  .section-content {
+    margin-top: 10px;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    @include breakpoint($bp_grande) {
+      margin-top: 0;
+    }
+  }
+
+  /**
+   * Secondary sections (the focal images switches alignments)
+   */
+  .chapter {
+    @include section-align-left();
+
+    &:nth-child(2n+1) {
+      @include section-align-right();
+
+      background-color: rgba(150, 150, 150, 0.2);
+    }
+
+    .wrapper {
+      @include pie-clearfix;
+    }
+  }
+}
+
+/**
+ * Greetings (i.e. main) section stylings
+ */
+#about-greetings {
+  background: rgba(lighten($color_palette_1, 10%), 0.95);
+  border-bottom-color: rgba(darken($color_palette_1, 10%), 0.4);
+  position: relative;
+  color: $color_light;
+
+  &::before {
+    content: "";
+    display: block;
+    background: url(img/about-greetings-bg.jpg) center top;
+    background-attachment: fixed;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+  }
+
+  a {
+    color: lighten($color_palette_1, 50%);
+  }
+
+  h1 {
+    text-align: center;
+    color: $color_light;
+    margin-top: 20px;
+
+    @include breakpoint($bp_tall) {
+      font-size: 2.5em;
+      font-weight: bold;
+    }
+  }
+
+  p {
+    @include breakpoint($bp_tall) {
+      font-size: 1.15em;
+    }
+
+    @include breakpoint($bp_grande) {
+      font-size: 1.3em;
+    }
+  }
+
+  img {
+    max-width: 200px;
+
+    @include breakpoint($bp_tall) {
+      border-color: rgba(darken($color_palette_1, 10%), 0.05);
+      max-width: 300px;
+    }
+  }
+}
