@@ -257,6 +257,16 @@ nav {
 /**
  * Individual social colours
  */
+
+#socials {
+  @include pie-clearfix;
+
+  li {
+    float: left;
+    margin-left: 4px;
+  }
+}
+
 #social-fb { background-color: #3B5998; }
 #social-twitter { background-color: #00B0ED; }
 #social-so { background-color: #fE7A15; }
