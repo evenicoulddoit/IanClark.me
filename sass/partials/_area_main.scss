@@ -13,7 +13,7 @@ main {
   }
 
   &.space-none {
-    padding-top: 70px;
+    padding: 70px 0 $footer_height;
 
     @include breakpoint($bp_grande) {
       padding-top: 0;
