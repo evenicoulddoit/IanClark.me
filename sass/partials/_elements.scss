@@ -47,10 +47,10 @@ h2 {
 }
 
 a {
-  color: $color_palette_4;
+  color: lighten($color_palette_1, 20%);
 
   &:hover {
-    color: $color_palette_5;
+    color: $color_palette_1;
   }
 }
 
