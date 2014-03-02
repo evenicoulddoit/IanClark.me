@@ -14,7 +14,8 @@
               {{ post.title }}
             </a>
           </h2>
-          <time class="blog-date" itemprop="dateCreated" datetime="{{ post.created|date:'c' }}">
+          <time class="blog-date" itemprop="dateCreated"
+                datetime="{{ post.created|date:'c' }}">
             {{ post.created|date:"M d, Y" }}
           </time>
         </div>
