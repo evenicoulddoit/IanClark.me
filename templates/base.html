@@ -6,6 +6,7 @@
   <head>
     {% with home_url="http://www.ianclark.me" default_title="Home" default_description="Personal website of web developer Ian Clark." %}
       <title>{{ page_title|default:default_title }} - Ian Clark</title>
+      <meta charset="UTF-8">
 
       {% if page_url %}
         <link rel="canonical" href="{{home_url}}{{ page_url }}" />
