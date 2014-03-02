@@ -40,7 +40,7 @@
       {% block stylesheets %}{% endblock %}
     {% endwith %}
   </head>
-  <body ng-controller="BlogCtrl">
+  <body>
     <div id="footer-fix">
       {% block header %}
       <header>
@@ -109,7 +109,7 @@
       </header>
       {% endblock %}
       {% block outermain %}
-      <main ng-click="active = false">
+      <main>
         <div class="wrapper">
           {% block main %}{% endblock %}
         </div>
