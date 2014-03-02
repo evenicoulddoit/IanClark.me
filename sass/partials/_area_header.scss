@@ -225,6 +225,7 @@ nav {
 }
 
 #socials {
+  @include pie-clearfix;
   display: none;
 
   @include breakpoint($bp_grande) {
@@ -233,12 +234,15 @@ nav {
   }
 
   li {
+    float: left;
+    margin-left: 4px;
+
     a {
       color: $color_light;
       text-decoration: none;
       width: 40px;
       height: 40px;
-      font-size: 16px;
+      font-size: 0;
       line-height: 40px;
       text-align: center;
       border-radius: 100%;
@@ -246,6 +250,10 @@ nav {
       opacity: 0.2;
       cursor: pointer;
       @include single-transition(opacity, 0.25s, ease);
+
+      &::before {
+        font-size: 1rem;
+      }
 
       &:hover {
         opacity: 1;
@@ -257,16 +265,6 @@ nav {
 /**
  * Individual social colours
  */
-
-#socials {
-  @include pie-clearfix;
-
-  li {
-    float: left;
-    margin-left: 4px;
-  }
-}
-
 #social-fb { background-color: #3B5998; }
 #social-twitter { background-color: #00B0ED; }
 #social-google-plus { background-color: #dd4b39; }
