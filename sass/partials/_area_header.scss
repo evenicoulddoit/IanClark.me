@@ -170,9 +170,9 @@ nav {
       }
 
       /**
-       * Special focus events for mobile view.
+       * Special hover events for mobile view.
        */
-      &:focus {
+      &:hover {
         color: $color_light;
         background-color: darken($color_header_bg, 10%);
 
