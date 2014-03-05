@@ -66,6 +66,12 @@ img {
   max-width: 100%;
 }
 
+code {
+  font-family: $font_type_code;
+  background-color: rgba(150, 150, 150, 0.15);
+  padding: 1px 3px;
+}
+
 .note {
   color: lighten($color_plaintext, 30%);
   font-size: 0.9em;
