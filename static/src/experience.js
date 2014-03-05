@@ -115,6 +115,12 @@
      */
     events: function() {
       var _this = this;
+
+      $("body").on("click", $.proxy(this.story_close, this));
+      this.$logoWrapper.on("click", function(e) {
+        e.stopPropagation();
+      });
+
       this.$btnCloseStory.on("click", $.proxy(this.story_close, this));
       this.$logos.on("click", function() {
         _this.story_show($(this));
