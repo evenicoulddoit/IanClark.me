@@ -1,7 +1,7 @@
 (function($) {
   "use strict";
 
-  var blog = {
+  var main = {
     init: function() {
       this.extract_dom();
       this.events();
@@ -44,7 +44,7 @@
    * Once the DOM is ready, initialise the blog
    */
   $("document").ready(function() {
-    blog.init();
+    main.init();
   });
 
 })(jQuery);

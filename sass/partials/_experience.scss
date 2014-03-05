@@ -1,0 +1,254 @@
+@import "experience_logo_positions";
+
+/**
+ * Mapping of technologies used to their X-coordinate positions within the sprite
+ */
+$logos: (
+  ("html5", -68px),
+  ("css3", -296px),
+  ("js", -1883px),
+  ("sass", -750px),
+  ("jquery", -2111px),
+  ("python", -975px),
+  ("django", -1200px),
+  ("trac", -1429px),
+  ("open-source", -1658px),
+  ("git", -2337px),
+  ("php", -2565px),
+  ("seo", -522px)
+);
+
+/**
+ * Y-Coordinates for the logo positions within the sprite
+ */
+$y_logos_grayscale: -50px;
+$y_logos_color: -231px;
+
+/**
+ * A list of (<breakpoint>, <columns>, <scale>) to use to construct the logo grids
+ */
+$grid_breakpoints: (
+  ($bp_short, 3, 0.6),
+  ($bp_tall, 3, 0.84),
+  ($bp_grande, 4, 0.75),
+  ($bp_venti, 4, 1)
+);
+
+/**
+ * Width and height of the logo boxes
+ */
+$height_logo_box: 119px;
+$width_logo_box: 173px;
+
+/**
+ * The x and y spacing to use in between logos
+ */
+$x_spacing: 35px;
+$y_spacing: 23px;
+
+
+/**
+ * Entire page wrapper
+ */
+#experience-wrapper {
+  padding:0;
+
+  @include breakpoint($bp_short) {
+    margin-top: 20px;
+  }
+}
+
+/**
+ * Wrapper around technologies section.
+ * Min-height and width defined in experience_logo_positions
+ */
+#experience-technologies {
+  overflow: hidden;
+  margin: 0 auto;
+
+  h1 {
+    text-align: center;
+  }
+
+  p {
+    text-align: justify;
+  }
+
+  @include breakpoint($bp_short) {
+    position: relative;
+  }
+}
+
+/**
+ * Individual technology wrapper
+ */
+.technology-story {
+  padding: 20px;
+  border-bottom: 10px solid rgba($color_palette_1, 0.2);
+
+  // In mobile view stripe the backgrounds
+  &:nth-child(2n+1) {
+    background-color: rgba(150, 150, 150, 0.2);
+
+    // Required for specificity
+    @include breakpoint($bp_short) {
+      background-color: transparent;
+    }
+  }
+
+  // When this story precedes or follows the current active story
+  &.navigate {
+    .technology-logo {
+      @include breakpoint($bp_short) {
+        @include transform(scale(0.4));
+        @include single-transition(left, 0s);
+        @include transform-origin(center);
+      }
+      @include breakpoint($bp_grande) {
+        @include transform(scale(0.5));
+      }
+    }
+  }
+
+  @include breakpoint($bp_short) {
+    padding: 0;
+    border-bottom: none;
+
+    // When a story is showing, and this is neither active nor previous / next
+    .story &:not(.story-visible) {
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      position: relative;
+    }
+  }
+}
+
+/**
+ * General styles for story details.
+ * Only relevant for viewports larger than mobile
+ */
+.technology-details {
+  @include breakpoint($bp_short) {
+    @include transition-property(opacity);
+    @include transition-duration(0.5s);
+    @include transition-delay(0.5s);
+
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+
+    .active & {
+      opacity: 1;
+      height: auto;
+      padding-top: 1.5em;
+      color: lighten($color_plaintext, 20%);
+      border-top: 4px solid rgba(150, 150, 150, 0.2);
+      border-bottom: 4px solid rgba(150, 150, 150, 0.2);
+    }
+  }
+}
+
+/**
+ * General styles applicable to all logos.
+ */
+.technology-logo {
+  @include transform-origin(center, 0);
+  @include transform(scale(0.8));
+
+  background-image: url(img/experience-logos-sprite.png);
+  background-clip: content-box;
+  width: $width_logo_box;
+  height: $height_logo_box;
+  margin: 0 auto;
+
+  @include breakpoint($bp_short) {
+    @include transition-property(opacity, top, left, background-position);
+    @include transition-duration(0.5s, 0.5s, 0.5s, 0s);
+    @include transition-delay(0s, 0s, 0s, 0.5s);
+    @include transition-timing-function(ease);
+
+    cursor: pointer;
+    opacity: 0.3;
+    position: absolute;
+    height: $height_logo_box;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+/**
+ * Loop through the logos, and map their background positions for both
+ * grayscale and colour variants. Also map their positions when active or
+ * a previous or next story (for specificity). Under mobile viewports,
+ * logos are coloured. Else, when grid is present, they are grayscale
+ * unless the active story.
+ */
+@for $i from 1 through length($logos) {
+  $logo: nth($logos, $i);
+  $logo_name: nth($logo, 1);
+  $logo_x: nth($logo, 2);
+
+  #experience-#{$logo_name}-logo {
+    background-position: $logo_x $y_logos_color;
+
+    // Logo positions
+    .active &,
+    .navigate & {
+      top: 0;
+    } 
+
+    .active & {
+      opacity: 1;
+      background-position: $logo_x $y_logos_color;
+    }
+
+    .prev & {
+      left: 0;
+    }
+
+    .next & {
+      left: auto;
+      right: 0;
+    }
+
+    @include breakpoint($bp_short) {
+      background-position: $logo_x $y_logos_grayscale;
+    }
+  }
+}
+
+/**
+ * Loop over the breakpoints. With each, generate a new grid as specified
+ */
+@each $grid_bp in $grid_breakpoints {
+  $breakpoint: nth($grid_bp, 1);
+  $columns: nth($grid_bp, 2);
+  $scale: nth($grid_bp, 3);
+  @include generate_logo_positions($breakpoint, $columns, $scale);
+}
+
+/**
+ * Close button for when a story is active.
+ * Requires JS Timeout to set loaded class
+ */
+#story-close {
+  opacity: 0;
+  height: 0;
+
+  .story.loaded & {
+    @include single-transition(opacity, 0.5s);
+    padding: 1em 0;
+    opacity: 1;
+    height: auto;
+    text-align: center;
+    color: lighten($color_plaintext, 40%);
+    cursor: pointer;
+
+    &:hover {
+      color: lighten($color_plaintext, 30%);
+    }
+  }
+}

@@ -1,0 +1,56 @@
+/**
+ * Mixin to map a breakpoint to display logos in a given column size and scale
+ */
+@mixin generate_logo_positions($breakpoint, $columns, $scale) {
+
+  @include breakpoint($breakpoint) {
+
+    // Generate the top and left absolute values at this position
+    @for $i from 1 through length($logos) {
+      $logo: nth($logos, $i);
+      $logo_name: nth($logo, 1);
+      $logo_x: nth($logo, 2);
+
+      $top: (floor(($i - 1) / $columns) * ($height_logo_box + (2 * $y_spacing))) * $scale;
+      $left: ((($i - 1) % $columns) * ($width_logo_box + (2 * $x_spacing))) * $scale;
+
+      #experience-#{$logo_name}-logo {
+        top: $top;
+        left: $left;
+      }
+    }
+
+    // Width of the container depends on columns, spacing and scale
+    $total_logo_space: ($width_logo_box + ($x_spacing * 2)) * $scale;
+    $no_spacing_at_ends: $x_spacing * 2 * $scale;
+    $width_container: $columns * $total_logo_space - $no_spacing_at_ends;
+
+    // When the technology's story is active
+    .technology-story.active {
+
+      // Logo animates to the top center of the page (via left animation)
+      .technology-logo {
+        left: ($width_container / 2) - ($width_logo_box * $scale / 2) !important;
+      }
+
+      // The details are shown right below the logo, and the font size is scaled
+      .technology-details {
+        margin-top: ($height_logo_box * $scale) + 20px;
+        font-size: max($scale * 1.3em, 1em);
+      }
+    }
+
+    // When in grid setup, scale the logo
+    .technology-logo {
+      @include transform-origin(0, 0);
+      @include transform(scale($scale));
+    }
+
+    // Set the width of the technologies wrapper. Needed for margin: 0 auto;
+    // We set a minimum height as an active story might consume more space
+    #experience-technologies {
+      width: $width_container;
+      min-height: floor(length($logos) / $columns) * (($height_logo_box + ($y_spacing * 2)) * $scale) - ($y_spacing * 2 * $scale);
+    }
+  }
+}

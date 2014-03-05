@@ -8,7 +8,8 @@ module.exports = function(grunt) {
     'closure-compiler': {
       frontend: {
         closurePath: 'bin/',
-        js: 'static/src/main.js',
+        js: ['static/src/main.js',
+             'static/src/experience.js'],
         jsOutputFile: 'static/js/main.min.js',
         maxBuffer: 500,
         options: {

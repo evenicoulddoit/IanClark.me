@@ -1,6 +1,95 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
-{% block main %}
-<h1>My Experience</h1>
-<p>Coming soon</p>
+{% block outermain %}
+<main class="space-none">
+  <div id="experience-wrapper" class="wrapper">
+    <section id="experience-technologies">
+      <div id="experience-html5" class="technology-story">
+        <div id="experience-html5-logo" class="technology-logo"></div>
+        <div class="technology-details">
+          <p>With well over 5 years of experience, I have an <strong>expert</strong> understanding of HTML. In all of my work, I strive to create <strong>clear, concise markup</strong>. I am particularly excited by recent developments in the language, and utilise these to develop <strong>richer, semantic code</strong> (using micro and meta data for example). In the past year, I have worked with a number HTML5 APIs, including <em>Offline &amp; Storage</em> (for drag and dropping), and <em>Performance &amp; Integration</em> (for XHR and multipart form data). It's no surprise that the majority of the questions I answer on Stack Overflow pertain to HTML problems.</p>
+        </div>
+      </div>
+      <div id="experience-css3" class="technology-story">
+        <div id="experience-css3-logo" class="technology-logo"></div>
+        <div class="technology-details">
+          <p>I have been using CSS since 2005, and have an <strong>excellent</strong> understanding of the technology. Since the advent of media queries in CSS3, I have been developing responsive layouts which look great on all viewports. My designs harness the extra capabilities of CSS3, allowing me to do far more without the need for excess DOM manipulation. I think <em>this page</em> is a really good example of that.
+          </p>
+        </div>
+      </div>
+      <div id="experience-js" class="technology-story">
+        <div id="experience-js-logo" class="technology-logo"></div>
+        <div class="technology-details">
+          <p>JavaScript has long been one of the languages I have most enjoyed writing programs in. I have over 4 years experience, mostly in jQuery-based applications. In the past 18 months especially, I have developed some quite considerable applications, such as a live task board for Agile development, and a file uploader, both of which recruited the latest HTML5 APIs. I love the interactivity that comes with JavaScript, and I'm always looking for <a href="http://stackoverflow.com/a/17747636/1773904" target="_blank">a challenging problem to solve with it</a>.
+          </p>
+        </div>
+      </div>
+      <div id="experience-sass" class="technology-story">
+        <div id="experience-sass-logo" class="technology-logo"></div>
+        <div class="technology-details">
+          <p>Sass has been a recent venture for me, but it has really opened my eyes to the powers of writing functional CSS. This page in particular, captures how effectively Sass allows you to abstract complex designs into easily manageable code. I have worked with libraries such as Compass and SingularityGS, to develop rich, responsive designs which are easily adaptable over time. One of the things I like most about Sass, is the ability to <a href="http://thesassway.com/beginner/how-to-structure-a-sass-project" target="_blank">structure</a> your code into modules and partials, dramatically reducing the lookup time for new developers.
+          </p>
+        </div>
+      </div>
+      <div id="experience-jquery" class="technology-story">
+        <div id="experience-jquery-logo" class="technology-logo"></div>
+        <div class="technology-details">
+          <p>For almost all of the JavaScript applications I have developed, I have employed jQuery to provide an essential abstraction layer. As the framework has developed, I have kept up with best practices, and I'm always looking at ways of improving my code further. I have years of experience working with a number of libraries, such as <em>jQuery UI</em> and <em>Bootstrap</em>, and I have a strong understanding of jQuery plugin development.
+          </p>
+        </div>
+      </div>
+      <div id="experience-python" class="technology-story">
+        <div id="experience-python-logo" class="technology-logo"></div>
+        <div class="technology-details">
+          <p>I have been using Python almost every day for the past two years. In this time, I have participated in Dojos, attended Pycon UK, and organised a number of Python training sessions within CGI. Coming from a PHP background, I found the clarity of the language and the Duck Typing particularly refreshing. I have knowledge of package management (Pip and Setuptools), virtualisation as well as a number of web frameworks (Django and Trac).
+          </p>
+        </div>
+      </div>
+      <div id="experience-django" class="technology-story">
+        <div id="experience-django-logo" class="technology-logo"></div>
+        <div class="technology-details">
+          <p>When I began planning the stack for IanClark.me, I knew that Django had to feature. Unlike many developers who learn Django, I discovered Python first. This has enabled me to quickly get to grips with the framework, and combine Django with other powerful Python libraries such as Markdown, Pygments and BeautifulSoup, to deliver a better experience. Of note, I have found Django's URL dispatcher and Object Relational Mapper (ORM) to be particularly powerful, and have recruited Flask to help manage any migrations.
+          </p>
+        </div>
+      </div>
+      <div id="experience-trac" class="technology-story">
+        <div id="experience-trac-logo" class="technology-logo"></div>
+        <div class="technology-details">
+          <p>At CGI, I work as a User Interface Engineer on an Applications Lifecycle Management (ALM) tool which is forked from Trac. I have 18 months experience working with Trac, during which I have developed a number of plugins which are planned to be hosted on <a href="http://trac-hacks.org/" target="_blank">Trac Hacks</a>, and reported a number of bugs to the core developers.
+          </p>
+        </div>
+      </div>
+      <div id="experience-open-source" class="technology-story">
+        <div id="experience-open-source-logo" class="technology-logo"></div>
+        <div class="technology-details">
+          <p>Almost all of the technologies which I use on a daily basis are Open Source, and I love the aspect of community and collaboration that comes with it. To date, I have developed a number of plugins for Trac which are planned to be Open Sourced, and try to help others whenever possible through sites such as <a href="http://stackoverflow.com/users/1773904/" target="_blank">Stack Overflow</a>. I aim to contribute much more the Open Source community in the future.
+          </p>
+        </div>
+      </div>
+      <div id="experience-git" class="technology-story">
+        <div id="experience-git-logo" class="technology-logo"></div>
+        <div class="technology-details">
+          <p>I have over 18 months experience of working with Version Control Systems such as Git and Subversion. My current project uses a Subversion repository and I use Git-SVN to take full advantage of the extra functionality provided by Git.</p>
+        </div>
+      </div>
+      <div id="experience-php" class="technology-story">
+        <div id="experience-php-logo" class="technology-logo"></div>
+        <div class="technology-details">
+          <p>I have around 2 years experience of PHP use, and have <a href="http://xsvision.net" target="_blank">individually developed numerous sites using it</a> which collectively received well over 10 million hits. I have worked with libraries such as MySQLi, GD and cURL.
+          </p>
+        </div>
+      </div>
+      <div id="experience-seo" class="technology-story">
+        <div id="experience-seo-logo" class="technology-logo"></div>
+        <div class="technology-details">
+          <p>I have a strong understanding of many of the facets of search engine optimisation. On this site for example, I recruit <em>keyword planning, minification</em> <span class="note">(including the Closure Compiler)</span><em>, metadata, microdata, image compression and sprites,</em> and a <em>Content Devliery Network (CDN)</em> to name a few. I work with tools such as Google's Webmasters and PageSpeed, as well as Yahoo's YSlow, to keep up with 
+          the ever-evolving best practices, and deliver great content.
+          </p>
+        </div>
+      </div>
+      <div id="story-close">Close</div>
+    </section>
+  </div>
+</main>
 {% endblock %}
