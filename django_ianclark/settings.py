@@ -21,6 +21,8 @@ DEFAULT_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
+    'django.contrib.sites',
 )
 
 THIRD_PARTY_APPS = (
@@ -83,6 +85,8 @@ STATICFILES_DIRS = (
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, "templates"),
 )
+
+SITE_ID = 1
 
 # Look for production settings
 try:
