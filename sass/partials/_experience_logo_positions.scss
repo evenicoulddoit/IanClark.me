@@ -48,7 +48,7 @@
 
     // Set the width of the technologies wrapper. Needed for margin: 0 auto;
     // We set a minimum height as an active story might consume more space
-    #experience-technologies {
+    #experience-technologies-inside {
       width: $width_container;
       min-height: floor(length($logos) / $columns) * (($height_logo_box + ($y_spacing * 2)) * $scale) - ($y_spacing * 2 * $scale);
     }

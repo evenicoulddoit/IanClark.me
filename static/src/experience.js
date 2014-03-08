@@ -11,103 +11,197 @@
      * Retrieve and store all valid jQuery elements from the DOM
      */
     extract_dom: function() {
-      this.$mainwrapper = $("#experience-wrapper");
-      this.$logoWrapper = $("#experience-technologies");
-      this.$logos = $(".technology-story", this.$logoWrapper);
-      this.$btnCloseStory = $("#story-close");
-      this.$currentStory = this.$prevStory = this.$nextStory = $();
-    },
 
-    story_get_prev_or_last: function() {
-      var $prev = this.$currentStory.prev(".technology-story");
-      return $prev.length ? $prev : this.$logos.filter(":last");
-    },
+      // Technology elements
+      this.$wrapperTech = $("#experience-technologies-inside");
+      this.$elemsTech = $(".technology-story", this.$wrapperTech);
+      this.$btnCloseTech = $("#tech-story-close");
+      this.$currentTech = this.$prevTech = this.$nextTech = $();
 
-    story_get_next_or_first: function($from) {
-      var $next = this.$currentStory.next(".technology-story");
-      return $next.length ? $next : this.$logos.filter(":first");
+      // Timeline elements
+      this.$wrapperTimeline = $("#experience-timeline-inside");
+      this.wrapperTimelineClass = this.$wrapperTimeline.attr("class");
+      this.$elemsTimeline = $(".timeline-period", this.$wrapperTimeline);
     },
 
     /**
-     * Show a specific user story
+     * Show a specific technology story
      */
-    story_show: function($elm) {
-      if(!this.$currentStory.is($elm)) {
+    tech_show: function($elm) {
+
+      // Ignore subsequent clicks on the same story
+      if(!this.$currentTech.is($elm)) {
+
+        // If a tech wasn't active before this, initialise keyboard events
+        if(this.active != "tech") {
+          this.active = "tech";
+          this.modals_reset();
+          this.$wrapperTech.addClass("story");
+          this._init_modal_keyevents(this.tech_set_prev_active,
+                                     this.tech_set_next_active,
+                                     this.tech_close);
+        }
 
         // Remove classes set on previous active & navigation stories
-        this.$currentStory.removeClass("active story-visible");
-        this.$prevStory.add(this.$nextStory).removeClass("navigate prev next story-visible");
+        this.$currentTech.removeClass("active story-visible");
+        this.$prevTech.add(this.$nextTech).removeClass("navigate prev next story-visible");
 
-        // Set the new current story and use this to calculate the previous / next ones
-        this.$currentStory = $elm.addClass("active story-visible");
-        this.$prevStory = this.story_get_prev_or_last().addClass("navigate prev story-visible");
-        this.$nextStory = this.story_get_next_or_first().addClass("navigate next story-visible");
+        // Set the new current tech and use this to calculate the previous / next ones
+        this.$currentTech = $elm.addClass("active story-visible");
+
+        // Calculate the next and previous stories and put them in the navigation
+        this.$prevTech = this._get_prev_or_last(this.$currentTech, this.$elemsTech);
+        this.$prevTech.addClass("navigate prev story-visible");
+
+        this.$nextTech = this._get_next_or_first(this.$currentTech, this.$elemsTech);
+        this.$nextTech.addClass("navigate next story-visible");
 
         // Start a fresh time out to add the loaded class to the wrapper
         clearTimeout(this.loadedTimeout);
-        this.$logoWrapper.removeClass("loaded");
-        this.loadedTimeout = setTimeout($.proxy(this.story_set_loaded, this), 500);
-
-        // If a story wasn't active before this, initialise keyboard events
-        if(!this.storyActive) {
-          this.$logoWrapper.addClass("story");
-          this.storyActive = true;
-          this.story_init_keyevents();
-        }
+        this.$wrapperTech.removeClass("loaded");
+        this.loadedTimeout = setTimeout($.proxy(this.tech_set_loaded, this), 500);
       }
     },
 
     /**
-     * Set the current story as loaded. This is when the CSS animations are complete
+     * Set the current technology story as loaded (When CSS animations are complete)
      */
-    story_set_loaded: function() {
-      this.$logoWrapper.addClass("loaded");
+    tech_set_loaded: function() {
+      this.$wrapperTech.addClass("loaded");
     },
 
     /**
-     * Track key events when a story is active
+     * Make previous technology story active
      */
-    story_init_keyevents: function() {
+    tech_set_prev_active: function() {
+      this.tech_show(this.$prevTech);
+    },
+
+    /**
+     * Make next technology story active
+     */
+    tech_set_next_active: function() {
+      this.tech_show(this.$nextTech);
+    },
+
+    /**
+     * Close the active technology story, returning to grid
+     */
+    tech_close: function() {
+      this.$wrapperTech.removeClass("story loaded");
+      this.$elemsTech.attr("class", "technology-story");
+      this.$currentTech = $();
+      this._modal_close();
+    },
+
+    /**
+     * Show a timeline event
+     */
+    timeline_show: function($period) {
+
+      // Get the date part of the ID
+      var period = $period.attr("id").split("-").slice(1).join("-");
+
+      // If timeline wasn't active before this, initialise keyboard events
+      if(this.active != "timeline") {
+        this.active = "timeline";
+        this.modals_reset();
+        this._init_modal_keyevents(this.timeline_set_prev_active,
+                                   this.timeline_set_next_active,
+                                   this.timeline_close);
+      }
+
+      this.$currentTimeline = $period;
+      this.$wrapperTimeline.attr("class", this.wrapperTimelineClass +
+                                          " active active-" + period);
+    },
+
+    /**
+     * Set the previous timeline event
+     */
+    timeline_set_prev_active: function() {
+      var $prev = this._get_prev_or_last(this.$currentTimeline, this.$elemsTimeline)
+      this.timeline_show($prev);
+    },
+
+    /**
+     * Set the next timeline event
+     */
+    timeline_set_next_active: function() {
+      var $next = this._get_next_or_first(this.$currentTimeline, this.$elemsTimeline)
+      this.timeline_show($next);
+    },
+
+    /**
+     * Close all timeline events
+     */
+    timeline_close: function() {
+      this.$wrapperTimeline.attr("class", this.wrapperTimelineClass);
+      this._modal_close();
+    },
+
+    /**
+     * Reset all modals to their initial state
+     */
+    modals_reset: function() {
+      this.tech_close();
+      this.timeline_close();
+    },
+
+    /**
+     * Always events for when closing a modal
+     */
+    _modal_close: function() {
+      this._disable_modal_keyevents();
+      delete this.active;
+    },
+
+    /**
+     * Track key events when a modal is active
+     */
+    _init_modal_keyevents: function(fPrev, fNext, fClose) {
       var _this = this;
-      $(window).on("keydown", function(e) {
+
+      $(window).off("keydown").on("keydown", function(e) {
         switch(e.keyCode) {
           // left
           case 37:
-            _this.story_set_prev_active();
+            fPrev.apply(_this);
             break;
+          // right
           case 39:
-            _this.story_set_next_active();
+            fNext.apply(_this);
             break;
+          // esc
           case 27:
-            _this.story_close();
+            fClose.apply(_this);
             break;
         }
       });
     },
 
     /**
-     * Make previous story active
+     * Disable all key events
      */
-    story_set_prev_active: function() {
-      this.story_show(this.$prevStory);
-    },
-
-    /**
-     * Make next story active
-     */
-    story_set_next_active: function() {
-      this.story_show(this.$nextStory);
-    },
-
-    /**
-     * Close the active story, returning to grid
-     */
-    story_close: function() {
-      this.$logoWrapper.removeClass("story loaded");
-      this.$logos.attr("class", "technology-story");
-      this.$currentStory = $();
-      this.storyActive = false;
+    _disable_modal_keyevents: function() {
       $(window).off("keydown");
+    },
+
+    /**
+     * Helper methods
+     */
+    _get_prev_or_last: function($from, $all) {
+      var prevIndex = $all.index($from) - 1;
+      return (prevIndex >= 0) ? $all.eq(prevIndex) : $all.filter(":last");
+    },
+
+    _get_next_or_first: function($from, $all) {
+      var nextIndex = $all.index($from) + 1;
+      return (nextIndex < $all.length) ? $all.eq(nextIndex) : $all.filter(":first");
+    },
+
+    _stop_propagation: function(e) {
+      e.stopPropagation();
     },
 
     /**
@@ -116,16 +210,22 @@
     events: function() {
       var _this = this;
 
-      $("body").on("click", $.proxy(this.story_close, this));
-      this.$logoWrapper.on("click", function(e) {
-        e.stopPropagation();
+      // Propagation events
+      $("body").on("click", $.proxy(this.modals_reset, this));
+      this.$wrapperTech.on("click", this._stop_propagation);
+      this.$wrapperTimeline.on("click", this._stop_propagation);
+
+      // Technology events
+      this.$btnCloseTech.on("click", $.proxy(this.tech_close, this));
+      this.$elemsTech.on("click", function() {
+        _this.tech_show($(this));
       });
 
-      this.$btnCloseStory.on("click", $.proxy(this.story_close, this));
-      this.$logos.on("click", function() {
-        _this.story_show($(this));
+      // Timeline events
+      this.$elemsTimeline.on("click", function() {
+        _this.timeline_show($(this));
       });
-    }
+    },
   };
 
   /**

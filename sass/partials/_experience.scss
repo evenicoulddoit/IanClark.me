@@ -46,15 +46,72 @@ $width_logo_box: 173px;
 $x_spacing: 35px;
 $y_spacing: 23px;
 
-
 /**
- * Entire page wrapper
+ * Periods for the timeline and corresponding colours
  */
-#experience-wrapper {
-  padding:0;
+$periods: (
+  ("2005-2007", $color_palette_1),
+  ("2007-2009", $color_palette_2),
+  ("2009-2012", $color_palette_3),
+  ("2012-", $color_palette_4)
+);
 
-  @include breakpoint($bp_short) {
-    margin-top: 20px;
+.experience-section {
+  padding:40px 0;
+  border-bottom: 10px solid rgba($color_palette_1, 0.2);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:nth-child(2n+1) {
+    background-color: rgba(150, 150, 150, 0.2);
+  }
+
+  .wrapper {
+    & > p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+#experience-overview {
+  position: relative;
+  color: $color_light;
+  background-color: rgba(lighten($color_palette_1, 10%), 0.95);
+  border-bottom-color: rgba(darken($color_palette_1, 0), 0.4);
+
+  &::before {
+    content: "";
+    display: block;
+    background: url(img/experience-overview.jpg) center top;
+    background-attachment: fixed;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+  }
+
+  h1 {
+    color: $color_light;
+
+    @include breakpoint($bp_tall) {
+      font-size: 2.5em;
+    }
+  }
+
+  p {
+    text-align: justify;
+
+    @include breakpoint($bp_tall) {
+      font-size: 1.15em;
+    }
+
+    @include breakpoint($bp_grande) {
+      font-size: 1.3em;
+    }
   }
 }
 
@@ -63,8 +120,7 @@ $y_spacing: 23px;
  * Min-height and width defined in experience_logo_positions
  */
 #experience-technologies {
-  overflow: hidden;
-  margin: 0 auto;
+  padding: 0;
 
   h1 {
     text-align: center;
@@ -73,6 +129,19 @@ $y_spacing: 23px;
   p {
     text-align: justify;
   }
+
+  @include breakpoint($bp_short) {
+    padding: 40px 0;
+  }
+
+  .wrapper {
+    padding: 0;
+  }
+}
+
+#experience-technologies-inside {
+  margin: 0 auto;
+  overflow: hidden;
 
   @include breakpoint($bp_short) {
     position: relative;
@@ -234,21 +303,197 @@ $y_spacing: 23px;
  * Close button for when a story is active.
  * Requires JS Timeout to set loaded class
  */
-#story-close {
+#tech-story-close {
   opacity: 0;
   height: 0;
 
-  .story.loaded & {
-    @include single-transition(opacity, 0.5s);
-    padding: 1em 0;
-    opacity: 1;
-    height: auto;
-    text-align: center;
-    color: lighten($color_plaintext, 40%);
-    cursor: pointer;
+  @include breakpoint($bp_short) {
+
+    .story.loaded & {
+      @include single-transition(opacity, 0.5s);
+      padding: 1em 0;
+      opacity: 1;
+      height: auto;
+      text-align: center;
+      color: lighten($color_plaintext, 40%);
+      cursor: pointer;
+
+      &:hover {
+        color: lighten($color_plaintext, 30%);
+      }
+    }
+  }
+}
+
+/**
+ * Outer wrapper for timeline
+ */
+#experience-timeline {
+
+  li {
+    margin-bottom: 40px;
+    overflow: hidden;
+    border-bottom-width: 10px;
+    border-bottom-style: solid;
+
+    @include breakpoint($bp_short) {
+      @include box-sizing(border-box);
+      @include transition-property(opacity, border-color);
+      @include transition-duration(0.5s);
+      @include transition-timing-function(ease);
+      width: 25%;
+      float: left;
+      margin-bottom: 0;
+      opacity: 0.5;
+      cursor: pointer;
+    }
 
     &:hover {
+      opacity: 1;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Dates
+  .period {
+    @include single-transition(color, 0.5s, ease);
+    color: lighten($color_plaintext, 20%);
+    font-weight: bold;
+    font-size: 2em;
+    margin-bottom: 0.5em;
+
+    @include breakpoint($bp_short) {
+      font-size: 1.3em;
+    }
+
+    @include breakpoint($bp_tall) {
+      font-size: 1.7em;
+    }
+  }
+
+  // Date story
+  .during-which {
+    @include breakpoint($bp_short) {
+      @include single-transition(opacity, 0.5s, ease, 0.5s);
+      height: 0;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      top: 70px;
+      left: 20px;
+      right: 20px;
+      cursor: text;
+      text-align: justify;
+      color: lighten($color_plaintext, 20%);
+      font-size: 1em;
+
+      @include breakpoint($bp_grande) {
+        font-size: 1em;
+      }
+
+      @include breakpoint($bp_venti) {
+        font-size: 1.2em;
+      }
+    }
+  }
+}
+
+/**
+ * Inside wrapper for timeline
+ */
+#experience-timeline-inside {
+  @include pie-clearfix;
+
+  // Non-mobile view, show only timeline before click events
+  @include breakpoint($bp_short) {
+    @include single-transition(height, 0.5s, ease);
+    position: relative;
+    height: 55px;
+    padding: 0 20px;
+  }
+
+  // Manual height calculations due to the absolute positioning of .during-which
+  &.active {
+    @include breakpoint($bp_short) {
+      height: 380px;
+    }
+
+    @include breakpoint($bp_tall) {
+      height: 310px;
+    }
+
+    @include breakpoint($bp_grande) {
+      height: 290px;
+    }
+  }
+}
+
+/**
+ * Loop through each period, and force all timeline borders to be the
+ * same when one is active (that is the reason we need to set the 
+ * reference at the parent level)
+*/
+@each $period in $periods {
+  $during: nth($period, 1);
+  $color: nth($period, 2);
+
+  #experience-#{$during} {
+    border-bottom-color: $color;
+  }
+
+  @include breakpoint($bp_short) {
+    #experience-timeline-inside.active.active-#{$during} {
+      li {
+        border-bottom-color: $color;
+      }
+
+      #experience-#{$during} {
+        opacity: 1;
+
+        .period {
+          color: darken($color, 20%);
+        }
+      }
+    }
+  }
+
+  // Manual height calculations due to the absolute positioning
+  #experience-timeline-inside.active.active-#{$during} #experience-#{$during} {
+    .during-which {
+      @include single-transition(height, 0, ease, 0.5s);
+      opacity: 1;
+
+      @include breakpoint($bp_short) {
+        height: 350px;
+      }
+
+      @include breakpoint($bp_tall) {
+        height: 280px;
+      }
+
+      @include breakpoint($bp_grande) {
+        height: 250px;
+      }
+    }
+  }
+}
+
+/**
+ * Just a list of other competencies, pretty basic ATM
+ */
+#experience-others {
+  li {
+    font-size: 1.3em;
+    line-height: 2;
+
+    .more {
       color: lighten($color_plaintext, 30%);
+      font-size: 1rem;
+      display: block;
+      margin-bottom: 20px;
     }
   }
 }
