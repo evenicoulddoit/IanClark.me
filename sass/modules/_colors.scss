@@ -2,11 +2,11 @@
 $color_light: #F6F6F6;
 $color_dark: #222;
 
-$color_palette_1: #334d5c; // Deep blue
-$color_palette_2: #45B29D; // Turquoise
-$color_palette_3: #EFC94C; // Yellow
-$color_palette_4: #E27A3F; // Orange
-$color_palette_5: #DF5A49; // Red
+$color_palette_1: saturate(#334d5c, 10%); // Deep blue
+$color_palette_2: saturate(#45B29D, 10%); // Turquoise
+$color_palette_3: saturate(#EFC94C, 10%); // Yellow
+$color_palette_4: saturate(#E27A3F, 10%); // Orange
+$color_palette_5: saturate(#DF5A49, 10%); // Red
 
 // Text
 $color_plaintext: $color_dark;
