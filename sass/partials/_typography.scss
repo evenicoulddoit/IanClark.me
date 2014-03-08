@@ -61,8 +61,10 @@
 }
 
 ::selection {
-  background-color: rgba($color_palette_5, 0.3);
+  background-color: desaturate(lighten($color_palette_1, 40%), 10%);
+  color: $color_plaintext;
 }
 ::-moz-selection {
-  background-color: rgba($color_palette_5, 0.3);
+  background-color: desaturate(lighten($color_palette_1, 40%), 10%);
+  color: $color_plaintext;
 }
