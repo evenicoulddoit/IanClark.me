@@ -83,7 +83,7 @@
  * Greetings (i.e. main) section stylings
  */
 #about-greetings {
-  background: rgba(lighten($color_palette_1, 10%), 0.95);
+  background-color: rgba(lighten($color_palette_1, 10%), 0.95);
   border-bottom-color: rgba(darken($color_palette_1, 10%), 0.4);
   position: relative;
   color: $color_light;
