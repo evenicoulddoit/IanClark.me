@@ -73,6 +73,13 @@ code {
   display: inline-block;
 }
 
+blockquote {
+  border-left: 7px solid lighten($color_plaintext, 70%);
+  color: lighten($color_plaintext, 20%);
+  padding-left: 1em;
+  font-size: 0.95em;
+}
+
 .note {
   color: lighten($color_plaintext, 30%);
   font-size: 0.9em;
