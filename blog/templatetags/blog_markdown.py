@@ -29,7 +29,7 @@ def blog_markdown(value):
                            output_format="html5",
                            enable_attributes=False)
 
-    soup = BeautifulSoup(md)
+    soup = BeautifulSoup(md, "html.parser")
     tables = soup.find_all("table")
 
     for table in tables:
