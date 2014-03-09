@@ -17,7 +17,8 @@
         <h1 id="post-title" itemprop="headline">{{ post.title }}</h1>
         <div id="post-date">
           Posted on:
-          <time itemprop="dateCreated" datetime="{{ post.created|date:'c' }}">
+          <time itemprop="dateCreated"
+                datetime="{{ post.created|date:'Y-m-d\TH:i:s+00:00' }}">
             {{ post.created|date:"M d, Y" }}
           </time>
         </div>
