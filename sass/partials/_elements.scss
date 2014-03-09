@@ -69,7 +69,8 @@ img {
 code {
   font-family: $font_type_code;
   background-color: rgba(150, 150, 150, 0.15);
-  padding: 1px 3px;
+  padding: 0 3px;
+  display: inline-block;
 }
 
 .note {
