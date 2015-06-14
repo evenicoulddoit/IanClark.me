@@ -28,8 +28,14 @@ module.exports = function(grunt) {
       }
     },
     "watch": {
-      files: ["static/src/*"],
-      tasks: ["closure-compiler"]
+      closure: {
+        files: ["static/src/**/*.js"],
+        tasks: ["closure-compiler"]
+      },
+      compass: {
+        files: ["sass/**/*.scss"],
+        tasks: ["compass"]
+      }
     },
   });
 

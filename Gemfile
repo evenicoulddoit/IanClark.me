@@ -2,7 +2,7 @@
 source "https://rubygems.org"
 
 # gem "rails"
-gem "sass", "~>3.2.0"
-gem "compass", "~>0.12.0"
-gem "breakpoint", "~>2.0.6"
-gem "singularitygs", "~>1.1.2"
+gem "sass", "~>3.3"
+gem "compass", "~>1.0"
+gem "breakpoint", "~>2.4"
+gem "singularitygs", "~>1.4"
