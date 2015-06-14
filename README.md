@@ -21,4 +21,5 @@ To run locally, you should download the [Heroku Toolbelt](https://toolbelt.herok
 * Node and packages:
   * `npm install`
 
-With these dependencies installed, you can run Django's development server using `foreman start`
+With these dependencies installed, you can run Django's development server using `foreman start`. You'll also want to run `grunt watch` in order to have the
+JavaScript and CSS recompile when changed.
