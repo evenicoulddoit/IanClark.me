@@ -7,15 +7,15 @@ $logos: (
   ("html5", -68px),
   ("css3", -296px),
   ("js", -1883px),
-  ("sass", -750px),
-  ("jquery", -2111px),
-  ("python", -975px),
   ("django", -1200px),
-  ("trac", -1429px),
+  ("sass", -750px),
+  ("python", -975px),
+  ("tdd", -2565px),
+  ("ubuntu", -1429px),
+  ("agile", -522px),
+  ("jquery", -2111px),
   ("open-source", -1658px),
-  ("git", -2337px),
-  ("php", -2565px),
-  ("seo", -522px)
+  ("git", -2337px)
 );
 
 /**
@@ -267,7 +267,7 @@ $periods: (
     .active &,
     .navigate & {
       top: 0;
-    } 
+    }
 
     .active & {
       opacity: 1;
@@ -433,7 +433,7 @@ $periods: (
 
 /**
  * Loop through each period, and force all timeline borders to be the
- * same when one is active (that is the reason we need to set the 
+ * same when one is active (that is the reason we need to set the
  * reference at the parent level)
 */
 @each $period in $periods {
