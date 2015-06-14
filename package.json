@@ -2,7 +2,7 @@
   "name": "IanClark.me",
   "repository": "https://github.com/evenicoulddoit/IanClark.me.git",
   "license": "GPL-2.0+",
-  "version": "0.1",
+  "version": "0.1.0",
   "dependencies": {
     "grunt": "^0.4.2",
     "grunt-cli": "0.1.13",
