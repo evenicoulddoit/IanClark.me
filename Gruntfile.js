@@ -1,5 +1,5 @@
 module.exports = function(grunt) {
-  
+
   grunt.initConfig({
     'watch': {
       files: ['static/src/*'],
@@ -24,4 +24,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('default', ['closure-compiler']);
+  grunt.registerTask('build', ['closure-compiler']);
 }
