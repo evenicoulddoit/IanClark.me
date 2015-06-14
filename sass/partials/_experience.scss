@@ -51,9 +51,9 @@ $y_spacing: 23px;
  */
 $periods: (
   ("2005-2007", $color_palette_1),
-  ("2007-2009", $color_palette_2),
-  ("2009-2012", $color_palette_3),
-  ("2012-", $color_palette_4)
+  ("2007-2012", $color_palette_2),
+  ("2012-2014", $color_palette_3),
+  ("2014-", $color_palette_4)
 );
 
 .experience-section {
@@ -403,6 +403,7 @@ $periods: (
 
 /**
  * Inside wrapper for timeline
+ * TODO: Move these calculations out of CSS...
  */
 #experience-timeline-inside {
   @include pie-clearfix;
@@ -478,6 +479,14 @@ $periods: (
         height: 250px;
       }
     }
+  }
+}
+
+// It was a busy period!
+#experience-2007-2012 {
+  .during-which {
+    overflow: auto;
+    padding-right: 20px;
   }
 }
 
