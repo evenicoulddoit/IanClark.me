@@ -2,7 +2,8 @@
 {% load staticfiles %}
 
 {% block outermain %}
-<main id="about-page" class="space-none" itemscope itemtype="http://schema.org/Person">
+<main id="about-page" class="space-none" itemscope
+      itemtype="http://schema.org/Person">
   <section id="about-greetings">
     <div class="wrapper">
       <div class="section-focal">
@@ -11,10 +12,42 @@
       </div>
       <div class="section-content">
         <h1>
-          &ldquo;Hi, I'm <span itemprop="givenName">Ian</span>, thanks for visting.&rdquo;
+          &ldquo;Hi, I'm <span itemprop="givenName">Ian</span>,
+          thanks for visting.&rdquo;
         </h1>
         <p>
-          Hello and welcome to my web site. My name's <span itemprop="name">Ian <span itemprop="familyName">Clark</span></span>, and I'm a 23-year-old web developer from the <span itemprop="nationality">UK</span>. I currently work for <a href="http://www.cgi.com/en" itemprop="worksFor" target="_blank">CGI Group</a> as a <span itemprop="jobTitle">User-Interface Engineer</span>, helping to deliver an <em>Application Lifecycle Management (ALM)</em> tool built on top of Open Source technologies. My role requires a strong knowledge of <em>Python, HTML, CSS and JavaScript</em>, and I have <a href="{% url 'experience.views.index' %}">experience in a number of other languages and technologies</a>. <strong>The aims of this site are twofold:</strong> to document my hobbies and skills, and to deliver useful resources from which others can learn. <strong><a href="https://github.com/evenicoulddoit/IanClark.me" target="_blank"><i class="fa fa-github"></i> View the codebase on GitHub.</a></strong>
+          Hello and welcome to my web site. My name's
+          <span itemprop="name">
+            Ian <span itemprop="familyName">Clark</span>
+          </span>,
+          and I'm a web developer from the
+          <span itemprop="nationality">UK</span>.
+
+          I currently work for
+          <a href="//myoptiquegroup.com/" itemprop="worksFor" target="_blank">
+            MyOptique Group
+          </a>
+          as a <span itemprop="jobTitle">Frontend Developer</span>, helping to
+          deliver the
+          <a href="//glassesdirect.co.uk" target="_blank">Glasses Direct</a>
+          website amongst other things. My role requires a strong knowledge of
+          <em>Python, HTML, CSS and JavaScript</em>, and I have
+          <a href="{% url 'experience.views.index' %}">
+            experience in a number of other languages and technologies
+          </a>.
+          <strong>
+            The aims of this site are twofold:
+          </strong>
+          to document my hobbies and skills, and to deliver useful resources
+          from which others
+          can learn.
+          <strong>
+            <a href="https://github.com/evenicoulddoit/IanClark.me"
+               target="_blank">
+              <i class="fa fa-github"></i>
+              View the codebase on GitHub.
+            </a>
+          </strong>
         </p>
       </div>
     </div>
@@ -28,10 +61,27 @@
       <div class="section-content">
         <h1>My passion for web development</h1>
         <p>
-          I began developing websites at the age of 14, in 2005. My initial static templates quickly evolved into dynamic and interactive content, and before long, I found myself <a href="{% static 'img/eicdi-tutorials.png' %}" target="_blank"> developing educational content which received millions of hits</a>, and which was being cited as a pre-requisite for university modules. Shortly after completing my GCSEs, I was even <a href="{% static 'img/2008-paper.jpg' %}" target="_blank">featured in a local newspaper</a> for developing an impartial electronic reviews website <span class="note">(highly photogenic!)</span>.
+          I began developing websites at the age of 14, in 2005. My initial
+          static templates quickly evolved into dynamic and interactive content,
+          and before long, I found myself
+          <a href="{% static 'img/eicdi-tutorials.png' %}" target="_blank">
+            developing educational content which received millions of hits
+          </a>,
+          and which was being cited as a pre-requisite for university modules.
+          Shortly after completing my GCSEs, I was even
+          <a href="{% static 'img/2008-paper.jpg' %}" target="_blank">
+            featured in a local newspaper
+          </a>
+          for developing an impartial electronic reviews website
+          <span class="note">(highly photogenic!)</span>.
         </p>
         <p>
-          Whilst my skills have progressed considerably since my teenage years, I'm still as excited as I ever have been to deliver experiences which users love, and to <a href="//stackoverflow.com/users/1773904/" target="_blank">help other's develop a similar passion</a>.
+          Whilst my skills have progressed considerably since my teenage years,
+          I'm still as excited as I ever have been to deliver experiences which
+          users love, and to
+          <a href="//stackoverflow.com/users/1773904/" target="_blank">
+            help other's develop a similar passion
+          </a>.
         </p>
       </div>
     </div>
@@ -39,15 +89,34 @@
   <section class="chapter">
     <div class="wrapper">
       <div class="section-focal">
-        <img src="{% static 'img/photography.jpg' %}" alt="Image of Amsterdam" />
+        <img src="{% static 'img/photography.jpg' %}"
+             alt="Image of Amsterdam" />
       </div>
       <div class="section-content">
         <h1>Other interests</h1>
         <p>
-          I'm actually a graduate in Economics, achieving a First-class degree from Loughborough University. I chose to study Economics, because I'm particularly interested in both the <a href="//amazon.co.uk/dp/0007256531/" target="_blank">behavioural</a> and welfare aspects. I also love science and listening to podcasts, such as <a href="//www.radiolab.org/" target="_blank">RadioLab</a>, <a href="//www.wnyc.org/shows/freakonomics-radio/" target="_blank">Freakonomics</a> and <a href="//www.npr.org/programs/ted-radio-hour/" target="_blank">TED</a>.
+          I'm actually a graduate in Economics, achieving a First-class degree
+          from Loughborough University. I chose to study Economics, because I'm
+          particularly interested in both the
+          <a href="//amazon.co.uk/dp/0007256531/" target="_blank">
+            behavioural
+          </a>
+          and welfare aspects. I also love science and listening to podcasts,
+          such as
+          <a href="//www.radiolab.org/" target="_blank">RadioLab</a>,
+          <a href="//www.wnyc.org/shows/freakonomics-radio/" target="_blank">
+            Freakonomics
+          </a>
+          and
+          <a href="//www.npr.org/programs/ted-radio-hour/" target="_blank">
+            TED
+          </a>.
         </p>
         <p>
-          Outside of academia, I'm interested in world news, photography (though not especially good at it), and sports such as football, weightlifting and badminton.
+          Outside of academia, I'm interested in world news, photography
+          (though not especially good at it), and sports such as football,
+          weightlifting and badminton.
+        </p>
       </div>
     </div>
   </section>
