@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "dependencies": {
     "grunt": "^0.4.2",
+    "grunt-cli": "0.1.13",
     "grunt-closure-compiler": "0.0.21"
   },
   "devDependencies": {
