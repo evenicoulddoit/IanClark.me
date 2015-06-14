@@ -3,3 +3,4 @@
 .sass-cache/*
 .bundle/*
 static/js/*.report.txt
+node_modules/*
