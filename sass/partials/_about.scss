@@ -1,5 +1,3 @@
-@import "about_grids";
-
 #about-page {
 
   /**
@@ -9,6 +7,7 @@
     width: 100%;
     max-width: 200px;
     border-radius: 100%;
+    box-sizing: border-box;
 
     @include breakpoint($bp_tall) {
       border:10px solid rgba($color_plaintext, 0.03);
@@ -65,16 +64,33 @@
    * Secondary sections (the focal images switches alignments)
    */
   .chapter {
-    @include section-align-left();
+    @include breakpoint($bp_tall) {
+      .chapter-inside {
+        @include display-flex;
+        @include align-items(center);
+      }
 
-    &:nth-child(2n+1) {
-      @include section-align-right();
+      .section-focal {
+        @include flex(0.8);
+      }
 
-      background-color: rgba(150, 150, 150, 0.2);
+      .section-content {
+        @include flex(2);
+        margin-left: 5%;
+      }
     }
 
-    .wrapper {
-      @include pie-clearfix;
+    &:nth-child(2n+1) {
+      background-color: rgba(150, 150, 150, 0.2);
+
+      .chapter-inside {
+        @include flex-direction(row-reverse);
+      }
+
+      .section-content {
+        margin-left: 0;
+        margin-right: 5%;
+      }
     }
   }
 }
