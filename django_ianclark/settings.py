@@ -7,9 +7,11 @@ https://docs.djangoproject.com/en/1.6/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
-
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
+import dj_database_url
+
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # Applications
@@ -66,18 +68,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': dj_database_url.config()
 }
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.6/howto/static-files/
-STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-)
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, "templates"),
@@ -85,20 +77,25 @@ TEMPLATE_DIRS = (
 
 SITE_ID = 1
 
-# Look for production settings
-try:
-    from production_settings import *
-except ImportError:
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-    # SECURITY WARNING: keep the secret key used in production secret!
-    SECRET_KEY = 'my$z5f#8qujyl(&4$b=xip9l-a*c$x$&=6jq5@@0n**oa1p&2p'
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
 
-    # SECURITY WARNING: don't run with debug turned on in production!
-    DEBUG = True
+# Static asset configuration
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/static/'
 
-    TEMPLATE_DEBUG = True
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
-    ALLOWED_HOSTS = []
+DEBUG = os.environ.get("DEBUG", False)
+TEMPLATE_DEBUG = os.environ.get("TEMPLATE_DEBUG", False)
+SECRET_KEY = os.environ.get(
+    "SECRET_KEY", "my$z5f#8qujyl(&4$b=xip9l-a*c$x$&=6jq5@@0n**oa1p&2p"
+)
 
 # Production environment can append / remove from each
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
