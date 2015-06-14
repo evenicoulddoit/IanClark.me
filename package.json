@@ -1,7 +1,8 @@
 {
   "name": "IanClark.me",
   "repository": "https://github.com/evenicoulddoit/IanClark.me.git",
-  "version": "0.0.1",
+  "license": "GPL-2.0+",
+  "version": "0.1",
   "dependencies": {
     "grunt": "^0.4.2",
     "grunt-cli": "0.1.13",
