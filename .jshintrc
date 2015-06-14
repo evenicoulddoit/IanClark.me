@@ -1,0 +1,16 @@
+{
+  "indent": 2,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "quotmark": "double",
+  "undef": true,
+  "unused": true,
+  "strict": true,
+  "maxlen": 80,
+  "browser": true,
+  "node": true,
+  "globals": {
+    "$": false
+  }
+}
