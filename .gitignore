@@ -3,5 +3,6 @@
 .sass-cache/*
 .bundle/*
 static/js/*
+static/css/*.css
 node_modules/*
 npm-debug.log
