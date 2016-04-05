@@ -1,0 +1,391 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block outermain %}
+  <main id="experience-wrapper" class="space-none">
+    <section id="experience-overview" class="experience-section">
+      <div class="wrapper">
+        <h1>Experience</h1>
+        <p>
+          I have upwards of 6 years' experience delivering successful web
+          solutions. I developed a passion during my teenage years, and I continue
+          to love both the creativity and power of web technologies. I work
+          well both individually, and as part of a team. I am a self-motivated,
+          quick learner, and take great pride in my work.
+        </p>
+        <p>
+          <strong>Below</strong> is a snapshot of some of the technologies I know
+          best. You'll also find a timeline of the projects I've worked on. Both
+          elements are interactive, and you can use your keyboard to navigate
+          between slides.
+        </p>
+      </div>
+    </section>
+    <section id="experience-technologies" class="experience-section">
+      <div class="wrapper">
+        <div id="experience-technologies-inside">
+          <div id="experience-html5" class="technology-story">
+            <div id="experience-html5-logo" class="technology-logo"></div>
+            <div class="technology-details">
+              <p>
+                With well over 6 years of experience, I have an
+                <strong>expert</strong> understanding of HTML. In all of my work,
+                I strive to create <strong>clear, concise markup</strong>. I am
+                particularly excited by recent developments in the language, and
+                utilise these to develop <strong>richer, semantic code</strong>
+                (using micro and meta data forexample).
+                In the past year, I have worked with a number HTML5 APIs,
+                including <em>Offline &amp; Storage</em> (for drag and dropping),
+                and <em>Performance &amp; Integration</em> (for XHR and multipart
+                form data). It's no surprise that the majority of the questions I
+                answer on Stack Overflow pertain to HTML problems.
+              </p>
+            </div>
+          </div>
+          <div id="experience-css3" class="technology-story">
+            <div id="experience-css3-logo" class="technology-logo"></div>
+            <div class="technology-details">
+              <p>
+                I have been using CSS since 2005, and have an
+                <strong>excellent</strong> understanding of the technology. Since
+                the advent of media queries in CSS3, I have been developing
+                responsive layouts which look great on all viewports. My designs
+                harness the extra capabilities of CSS3, allowing me to do far more
+                without the need for excess DOM manipulation. I think
+                <em>this page</em> is a really good example of that.
+              </p>
+            </div>
+          </div>
+          <div id="experience-js" class="technology-story">
+            <div id="experience-js-logo" class="technology-logo"></div>
+            <div class="technology-details">
+              <p>
+                JavaScript is both the language I have the most experience in
+                (over 5 years), and the one I enjoy writing the most. I love
+                developing with JavaScript to create performant, well-tested,
+                object-oriented solutions.
+                I have an expert knowledge of both jQuery and vanilla JavaScript,
+                which has been most recently used to create a whole range of
+                touch-friendly, bespoke components on the
+                <a href="//www.glassesdirect.co.uk/" target="_blank">
+                  Glasses Direct
+                </a>
+                website (including the Pub-Sub home trial and favourites APIs,
+                the infinite scroll and the product showcase interactions).
+              </p>
+              <p>
+                All of the scripts used on the GD site are tested using a
+                combination of QUnit and SinonJS. These are then added
+                to the CI build process through a custom Python I wrote which
+                runs the tests using PhantomJS. Recently I also created my own
+                test suite which parses two web pages and reports any differences
+                in both the DOM and styling.
+              </p>
+              <p>
+                I also have experience of AMD (using RequireJS), and keep up to
+                date with all of the planned changes in ECMAScript 6.
+                <a href="//github.com/evenicoulddoit/IanClark.me/tree/master/static/src"
+                   target="_blank">
+                   <i class="fa fa-github"></i>
+                   View this site's JavaScript
+                </a>.
+              </p>
+            </div>
+          </div>
+          <div id="experience-django" class="technology-story">
+            <div id="experience-django-logo" class="technology-logo"></div>
+            <div class="technology-details">
+              <p>
+                I have over 18 months experience of working with Django, which I
+                first used to
+                <a href="//github.com/evenicoulddoit/IanClark.me/tree/master/blog"
+                   target="_blank"><i class="fa fa-github"></i>
+                  develop this site
+                </a>.
+                Unlike many developers who learn Django, I discovered Python
+                first, which enabled me to quickly get to grips with the
+                framework. I really enjoy working with Django, not simply for its
+                well structured MVT approach and superb documentation, but also
+                because, like Python, it comes very much "batteries included".
+                I have worked with Django to develop scalable, responsive
+                websites.
+              </p>
+            </div>
+          </div>
+          <div id="experience-sass" class="technology-story">
+            <div id="experience-sass-logo" class="technology-logo"></div>
+            <div class="technology-details">
+              <p>
+                I have over 18 months experience of using Sass to write
+                functional CSS. This page captures how effectively Sass allows
+                you to abstract complex designs into easily manageable code.
+                I have experience in transforming large legacy codebases into
+                maintainable,
+                <a href="//thesassway.com/beginner/how-to-structure-a-sass-project"
+                   target="_blank">modular</a> Sass.
+                I have also used Sass for optimisation purposes, by developing
+                independent mobile and desktop stylesheets from shared partials.
+                <a href="//github.com/evenicoulddoit/IanClark.me/blob/master/sass/partials/_experience.scss"
+                   target="_blank">
+                  <i class="fa fa-github"></i>
+                  View the Sass which went into this page
+                </a>.
+              </p>
+            </div>
+          </div>
+          <div id="experience-python" class="technology-story">
+            <div id="experience-python-logo" class="technology-logo"></div>
+            <div class="technology-details">
+              <p>
+                I have been using Python for the past three years, working with
+                a number of frameworks including Django and Trac. I am a huge
+                fan of the language. At CGI, I organised a number of training
+                sessions for beginners, and have also participated in Dojos
+                and attended Pycon UK.
+              </p>
+              <p>
+                I find Python's combination of readability and power
+                particularly refreshing, especially coming from a PHP background!
+              </p>
+            </div>
+          </div>
+          <div id="experience-tdd" class="technology-story">
+            <div id="experience-tdd-logo" class="technology-logo"></div>
+            <div class="technology-details">
+              <p>
+                I have over 12 months experience of Test Driven Development (TDD),
+                using the practice across the entire stack. I have worked with
+                <em>Qubit, SinonJS and PhantomJS</em> to develop JavaScript unit
+                tests, <em>Unittest, Mock and Nose</em> to write Python
+                unit/functional tests, and <em>Robot Framework and Selenium</em>
+                to create end-to-end and critical path tests.
+              </p>
+              <p>
+                In addition to this, I also wrote my own test suite to provide
+                assurance that large scale refactoring hasn't changed a page's
+                DOM or styling. From my experience, TDD not only reduces the
+                likelihood of bugs creeping into production code, but also
+                improves code quality.
+              </p>
+            </div>
+          </div>
+          <div id="experience-ubuntu" class="technology-story">
+            <div id="experience-ubuntu-logo" class="technology-logo"></div>
+            <div class="technology-details">
+              <p>
+                I have been using Linux for over 3 years, both in a virtual
+                environment, and as a host OS. Throughout this time, I have
+                almost exclusively used Ubuntu (Gnome), but have also worked
+                briefly with Fedora and RHEL.
+              </p>
+            </div>
+          </div>
+          <div id="experience-agile" class="technology-story">
+            <div id="experience-agile-logo" class="technology-logo"></div>
+            <div class="technology-details">
+              <p>
+                I have worked as part of a Scrum team for over 12 months - working
+                in 2-week sprint cycles, using Jira to plan and develop stories,
+                and taking part in daily stand-ups and end of sprint
+                retrospectives. I have also worked in Kanban teams, and have found
+                both techniques to be very effective, particularly when trying
+                to deliver large epics.
+              </p>
+            </div>
+          </div>
+          <div id="experience-jquery" class="technology-story">
+            <div id="experience-jquery-logo" class="technology-logo"></div>
+            <div class="technology-details">
+              <p>
+                For the vast majority of JavaScript applications I have
+                developed, I have employed jQuery to provide an essential
+                abstraction layer. As the framework has developed and browsers
+                have become more standards compliant, jQuery's role in JavaScript
+                development has changed, and I have kept up with best practices
+                throughout.
+              </p>
+              <p>
+                I have years of experience working with, creating and testing
+                jQuery libraries, and I have a strong understanding of jQuery
+                plugin development.
+              </p>
+            </div>
+          </div>
+          <div id="experience-open-source" class="technology-story">
+            <div id="experience-open-source-logo" class="technology-logo"></div>
+            <div class="technology-details">
+              <p>
+                Almost all of the technologies which I use on a daily basis are
+                Open Source, and I love the aspect of community and collaboration
+                that comes with it. To date, I have developed a number of plugins
+                for Trac, contributed to a variety of GitHub hosted projects,
+                and continually try to help others whenever possible through
+                sites such as
+                <a href="http://stackoverflow.com/users/1773904/" target="_blank">
+                  Stack Overflow
+                </a>.
+                I aim to contribute much more the Open Source community in the
+                future.
+              </p>
+            </div>
+          </div>
+          <div id="experience-git" class="technology-story">
+            <div id="experience-git-logo" class="technology-logo"></div>
+            <div class="technology-details">
+              <p>
+                I have over 3 years experience of working with Version Control
+                Systems such as Git and Subversion, working in teams of all sizes.
+                My current team uses a combination of GitHub, Gitflow and
+                Continuous Integration to ensure the highest standards of code
+                quality.
+              </p>
+            </div>
+          </div>
+          <div id="tech-story-close">Close</div>
+        </div>
+      </div>
+    </section>
+    <section id="experience-timeline" class="experience-section">
+      <ul id="experience-timeline-inside" class="wrapper">
+        <li id="experience-2005-2007" class="timeline-period">
+          <div class="period">2005-2007</div>
+          <div class="during-which">
+            <p>
+              I developed my first website at age of 14. The intention of the site
+              was clear: deliver flash games from a domain not blacklisted by the
+              school's network. Although the project was entirely juvenile, it
+              proved to be a life-defining venture
+              <span class="note">(and was a huge success!)</span>
+            </p>
+            <p>
+              Shortly after, I began using Adobe Photoshop, and instantly found a
+              passion for graphic design. This proved to be the impetus for my
+              first geniune project, <em>EvenICouldDoIt.com</em>, which provided
+              tutorials newcomers to graphic design. The site's popularity peaked
+              in 2007, by which point it had received over 14 million hits and
+              been cited by many (including a US university) as a resource of
+              high quality content.
+            </p>
+          </div>
+        </li>
+        <li id="experience-2007-2012" class="timeline-period">
+          <div class="period">2007-2012</div>
+          <div class="during-which">
+            <p>
+              After completing my GCSEs, I decided to take on another challenge,
+              <em>Complocated.com</em>. Using much of the new-found knowledge I
+              had acquired through developing <em>EvenICouldDoIt</em>
+              <span class="note">(such as PHP, MySQL and JavaScript</span>), I
+              aimed to build a site which provided unbiased reviews of electrical
+              goods. Although I struggled to build a strong user-base, I did learn
+              a lot, and I was even featured in the local paper.
+            </p>
+            <p>
+              Working 6 days a week on my International Baccalaureate
+              qualification, and with free time at a premium, I managed to
+              complete a few more projects, including an Arts site for a teacher
+              at the school, and a couple more advertising local community and
+              charity events.
+            </p>
+            <p>
+              At Loughborough University, I spent a great deal of time working.
+              I worked as a barman, as a concierge, and still found some time to
+              continue developing. The first site I worked on was
+              <a href="http://xsvision.net" target="_blank">
+                <em>XSVision.net</em>
+              </a>,
+              which at the time I intended to be the home of my own web design
+              company.
+            </p>
+            <p>
+              During my holidays, I designed a site for a couple of students that
+              provided bespoke fancy dress for new first years. I thoroughly
+              enjoyed working on the project, and spent quite a lot of time
+              meeting with the two of them to discuss ideas etc. The project was
+              a great success, and I was asked to revamp the site for the
+              following year.
+            </p>
+          </div>
+        </li>
+        <li id="experience-2012-2014" class="timeline-period">
+          <div class="period">2012-2014</div>
+          <div class="during-which">
+            <p>
+              After leaving Loughborough University with a First class degree in
+              Economics, I joined the IT multinational CGI Group (formerly
+              Logica). For around 2 years, I worked as a User-interface Engineer
+              for an Applications Lifecycle Management tool built on top of Open
+              Source products.
+            </p>
+            <p>
+              During this period I significantly consolidated my existing
+              skills, and developed a number of new ones. I worked every
+              day on a Python and Linux stack, and was introduced to Version
+              Control Systems (VCS) through Subversion and Git. I developed both
+              an Agile task board and backlog for the product, which drove
+              the team itself to taking up Agile as a methodology.
+            </p>
+          </div>
+        </li>
+        <li id="experience-2014-" class="timeline-period">
+          <div class="period">2014-</div>
+          <div class="during-which">
+            <p>
+              In 2014 I joined MyOptique Group as a Front-end Developer. Between
+              2014 and 2015 we completely refreshed the
+              <a href="http://www.glassesdirect.co.uk/"
+                 target="_blank">
+                Glasses Direct
+              </a>
+              website, working in an Agile environment, using Test-Driven
+              Development (TDD) and Continuous Integration to aid the process.
+              A huge number of architectural changes have been made to the site,
+              which is now faster, delivers a much better user experience
+              and is entirely mobile-friendly.
+            </p>
+            <p>
+              I was fortunate enough to be heavily involved in the planning of
+              every phase of the development and to have worked with a number
+              of stakeholders to deliver the project on schedule.
+            </p>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <section id="experience-others" class="experience-section">
+      <div class="wrapper">
+        <h1>Further Skills</h1>
+        <ul>
+          <li>
+            Best Practices
+            <span class="more">
+              Continuous Integration, Responsive design, Optimisation,
+              Code reviews
+            </span>
+          </li>
+          <li>
+            Databases
+            <span class="more">MySQL, PostreSQL, SQLite, MongoDB</span>
+          </li>
+          <li>
+            Photoshop
+            <span class="more">Since CS (8.0)</span>
+          </li>
+          <li>
+            Economics
+            <span class="more">
+              First-class degree from Loughborough University
+            </span>
+          </li>
+          <li>
+            International Baccalaureate
+            <span class="more">
+              38 points &mdash; Computer Science, Economics, Biology, English,
+              Maths, German
+            </span>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+{% endblock %}

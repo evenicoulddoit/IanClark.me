@@ -3,11 +3,14 @@ from bs4 import BeautifulSoup
 from django.db import models
 from django.core.urlresolvers import reverse
 
+
 class Post(models.Model):
     title = models.CharField("Blog title", max_length=255)
     slug = models.SlugField("Slug (unique)", max_length=255, primary_key=True)
-    description = models.CharField("Description (optional)", max_length=255, blank=True)
-    tags = models.CharField("Tags (Comma separated)", max_length=150, blank=True)
+    description = models.CharField(
+        "Description", max_length=255, blank=True)
+    tags = models.CharField(
+        "Tags (Comma separated)", max_length=150, blank=True)
     created = models.DateTimeField("Creation date", auto_now_add=True)
     published = models.BooleanField("Published", default=True)
 
@@ -28,7 +31,10 @@ class Post(models.Model):
             soup = BeautifulSoup(self.content_processed)
 
             for tag in soup.findAll(True):
-                if tag.name == "table" and "code-snippettable" in tag.get("class", []):
+                if (
+                    tag.name == "table" and
+                    "code-snippettable" in tag.get("class", [])
+                ):
                     tag.decompose()
                 elif tag.name:
                     tag.unwrap()
@@ -40,8 +46,10 @@ class Post(models.Model):
             else:
                 return description
 
-    def get_tags(self):
+    @property
+    def tags_filtered(self):
         return filter(None, self.tags.split(","))
 
-    def get_absolute_url(self):
-        return reverse('blog.views.post', args=[self.slug])
+    @property
+    def url(self):
+        return reverse('blog:post', args=(self.slug,))

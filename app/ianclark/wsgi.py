@@ -1,5 +1,5 @@
 """
-WSGI config for django_ianclark project.
+WSGI config for ianclark project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -8,8 +8,9 @@ https://docs.djangoproject.com/en/1.6/howto/deployment/wsgi/
 """
 
 import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "django_ianclark.settings")
-
 from django.core.wsgi import get_wsgi_application
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ianclark.settings.base")
+
 from dj_static import Cling
 application = Cling(get_wsgi_application())

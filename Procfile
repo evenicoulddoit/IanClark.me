@@ -1,1 +1,1 @@
-web: gunicorn django_ianclark.wsgi --log-file -
+web: gunicorn app.ianclark.wsgi --log-file - --pythonpath=./app
