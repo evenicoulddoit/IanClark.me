@@ -46,10 +46,9 @@ class Post(models.Model):
             else:
                 return description
 
+    def get_absolute_url(self):
+        return reverse('blog:post', args=(self.slug,))
+
     @property
     def tags_filtered(self):
         return filter(None, self.tags.split(","))
-
-    @property
-    def url(self):
-        return reverse('blog:post', args=(self.slug,))

@@ -3,12 +3,13 @@ from django.core.urlresolvers import reverse
 
 from models import Post
 
+
 class BlogIndexSitemap(Sitemap):
     priority = 0.5
     changefreq = 'daily'
 
     def items(self):
-        return ['blog.views.index',]
+        return ['blog:index']
 
     def location(self, item):
         return reverse(item)
