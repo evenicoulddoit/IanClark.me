@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load blog_markdown %}
+{% load staticfiles %}
+
+{% block main %}
+  <article id="blog-post" itemscope itemtype="http://schema.org/BlogPosting">
+    <div id="post-overview">
+      <div id="post-author" itemscope itemtype="http://schema.org/Person" itemprop="author">
+        <meta itemprop="givenName" content="Ian">
+        <meta itemprop="familyName" content="Clark">
+        <meta itemprop="nationality" content="British">
+        <a href="{% url 'about:index' %}">
+          <img alt="Picture of the author" src="{% static 'img/me.jpg' %}" itemprop="image" />
+        </a>
+      </div>
+      <div id="post-keyfacts">
+        <h1 id="post-title" itemprop="headline">{{ post.title }}</h1>
+        <div id="post-date">
+          Posted on:
+          <time itemprop="dateCreated"
+                datetime="{{ post.created|date:'Y-m-d\TH:i:s+00:00' }}">
+            {{ post.created|date:"M d, Y" }}
+          </time>
+        </div>
+      </div>
+    </div>
+    <div id="post-content" itemprop="articleBody">
+      {{ post.content_processed|safe }}
+    </div>
+    <div id="post-tags" itemprop="keywords">
+      {% for tag in post.get_tags %}
+        <div class="blog-tag">{{ tag }}</div>
+      {% endfor %}
+    </div>
+  </article>
+{% endblock %}

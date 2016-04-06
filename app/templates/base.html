@@ -1,0 +1,125 @@
+{% load staticfiles %}
+{% load startswith %}
+
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" dir="ltr">
+  <head>
+    {% with home_url="http://www.ianclark.me" default_title="Home" default_description="Personal website of web developer Ian Clark." %}
+      <title>{{ page_title|default:default_title }} - Ian Clark</title>
+      <meta charset="UTF-8">
+
+      {% if page_url %}
+        <link rel="canonical" href="{{home_url}}{{ page_url }}" />
+        <meta property="og:url" content="{{home_url}}{{ page_url }}">
+        <meta name="twitter:url" content="{{home_url}}{{ page_url }}">
+      {% endif %}
+
+      <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
+      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+      <meta property="description" content="{{ page_description|default:default_description}}">
+
+      <meta name="google-site-verification" content="RFByqKCpmOXdENVPPiIpb07oaXsyWl_3AceSMcwzfHM" />
+
+      <meta property="og:title" content="{{ page_title|default:default_title }} - Ian Clark">
+      <meta property="og:type" content="website">
+      <meta property="og:image" content="{{home_url}}{% static 'img/logo-square-large.png' %}">
+      <meta property="og:site_name" content="IanClark.me">
+      <meta property="fb:admins" content="evenicoulddoit">
+
+      <meta name="twitter:card" content="{{ page_description|default:default_description}}">
+      <meta name="twitter:description" content="{{ page_description|default:default_description}}">
+      <meta name="twitter:image" content="{{home_url}}{% static 'img/logo-square-twitter.png' %}">
+      <meta name="twitter:title"
+            content="{{ page_title|default:default_title|slice:':59' }} - Ian Clark">
+
+      <meta itemprop="name" content="{{ page_title|default:default_title }} - Ian Clark">
+      <meta itemprop="description" content="{{ page_description|default:default_description}}">
+      <meta itemprop="image" content="{{home_url}}{% static 'img/logo-square-large.png' %}">
+
+      <link href="{% static 'css/main.css' %}" rel="stylesheet">
+      <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
+            rel="stylesheet">
+      {% block stylesheets %}{% endblock %}
+    {% endwith %}
+  </head>
+  <body>
+    <div id="footer-fix">
+      {% block header %}
+      <header>
+        <div class="wrapper">
+          <h1 id="logo" itemscope itemtype="http://schema.org/Person">
+            <a href="/" itemprop="name">
+              <span class="name-part" itemprop="givenName">Ian</span> <strong class="name-part" itemprop="familyName">Clark</strong>
+            </a>
+          </h1>
+          <nav id="nav">
+            <a id="nav-toggle" class="fa fa-bars"></a>
+            <ul>
+              <li>
+                <a href="{% url 'blog:index' %}"
+                   {% if site_section == 'blog' %}class="active"{% endif %}>
+                  Blog
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'experience:index' %}"
+                   {% if site_section == 'experience' %}class="active"{% endif %}>
+                  Experience
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <ul id="socials">
+            <li>
+              <a id="social-fb" href="//facebook.com/evenicoulddoit"
+                 class="fa fa-facebook" target="_blank"></a>
+            </li>
+            <li>
+              <a id="social-twitter" href="//twitter.com/evenicoulddoit"
+                 class="fa fa-twitter" target="_blank"></a>
+            </li>
+            <li>
+              <a id="social-google-plus" href="https://plus.google.com/106899359900878576772?rel=author"
+                 class="fa fa-google-plus" target="_blank">Google</a>
+            </li>
+            <li>
+              <a id="social-linkedin" href="//www.linkedin.com/profile/view?id=153061629"
+                 class="fa fa-linkedin" target="_blank"></a>
+            </li>
+            <li>
+              <a id="social-github" href="//github.com/evenicoulddoit"
+                 class="fa fa-github-alt" target="_blank"></a>
+            </li>
+            <li>
+              <a id="social-so" href="//stackoverflow.com/users/1773904"
+                 class="fa fa-stack-overflow" target="_blank"></a>
+            </li>
+          </ul>
+        </div>
+        <div id="header-divider">
+          <div class="swatch-1"></div>
+          <div class="swatch-2"></div>
+          <div class="swatch-3"></div>
+          <div class="swatch-4"></div>
+        </div>
+      </header>
+      {% endblock %}
+      {% block outermain %}
+      <main>
+        <div class="wrapper">
+          {% block main %}{% endblock %}
+        </div>
+      </main>
+      {% endblock %}
+    </div>
+    <footer>
+      <div class="wrapper">
+        <strong>IanClark.me</strong>
+      </div>
+    </footer>
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="{% static 'js/main.min.js' %}"></script>
+    {% block scripts %}{% endblock %}
+  </body>
+</html>
