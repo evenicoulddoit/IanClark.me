@@ -17,9 +17,9 @@ module.exports = function(grunt) {
     "closure-compiler": {
       frontend: {
         closurePath: "bin/",
-        js: ["static/src/main.js",
-             "static/src/experience.js"],
-        jsOutputFile: "static/js/main.min.js",
+        js: ["./app/static/src/main.js",
+             "./app/static/src/experience.js"],
+        jsOutputFile: "./app/static/js/main.min.js",
         maxBuffer: 500,
         options: {
           compilation_level: "SIMPLE_OPTIMIZATIONS",
@@ -29,11 +29,11 @@ module.exports = function(grunt) {
     },
     "watch": {
       closure: {
-        files: ["static/src/**/*.js"],
+        files: ["./app/static/src/**/*.js"],
         tasks: ["closure-compiler"]
       },
       compass: {
-        files: ["sass/**/*.scss"],
+        files: ["./app/sass/**/*.scss"],
         tasks: ["compass"]
       }
     },
