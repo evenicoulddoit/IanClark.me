@@ -23,15 +23,17 @@
           and I'm a web developer from the
           <span itemprop="nationality">UK</span>.
 
-          I currently work for
-          <a href="https://housekeep.com/" itemprop="worksFor" target="_blank">
-            Housekeep
-          </a>
-          as a <span itemprop="jobTitle">Front-end Developer</span>, helping to
-          deliver the
-          <a href="//glassesdirect.co.uk" target="_blank">Glasses Direct</a>
-          website amongst other things. My role requires a strong knowledge of
-          <em>Python, HTML, CSS and JavaScript</em>, and I have
+          I currently work for the Home Cleaning Startup,
+          {% spaceless %}
+            <a href="https://housekeep.com/" itemprop="worksFor"
+               target="_blank">
+              <span>Housekeep</span>
+            </a>,
+          {% endspaceless %}
+          as a <span itemprop="jobTitle">Lead software engineer</span>.
+          My role requires a strong knowledge of
+          <em>Python (Django) and JavaScript (AngularJS)</em>,
+          and I have
           <a href="{% url 'experience:index' %}">
             experience in a number of other languages and technologies
           </a>.
