@@ -4,5 +4,6 @@
 .bundle/*
 app/static/js/*
 app/static/css/*.css
+app/staticfiles/*
 node_modules/*
 npm-debug.log
