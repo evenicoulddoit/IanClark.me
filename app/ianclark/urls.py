@@ -1,9 +1,9 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
+from sitemaps import StaticViewSitemap
 
 from blog.sitemaps import BlogIndexSitemap, BlogPostSitemap
-from sitemaps import StaticViewSitemap
 
 admin.autodiscover()
 

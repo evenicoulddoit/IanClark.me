@@ -22,11 +22,12 @@ class Post(models.Model):
         ordering = ['-created']
 
     def __unicode__(self):
-        return u'%s' % self.title
+        return self.title
 
     def get_excerpt(self):
-        """Return an excerpt of the article's content."""
-
+        """
+        Return an excerpt of the article's content.
+        """
         if self.content_processed:
             soup = BeautifulSoup(self.content_processed)
 

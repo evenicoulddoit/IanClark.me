@@ -1,10 +1,10 @@
 import re
 
-from blog.forms import PostForm
-from blog.templatetags import blog_markdown
-
 from django.contrib import admin
+
+from blog.forms import PostForm
 from blog.models import Post
+from blog.templatetags import blog_markdown
 
 
 class PostAdmin(admin.ModelAdmin):
@@ -22,7 +22,9 @@ class PostAdmin(admin.ModelAdmin):
         }
 
     def save_model(self, request, obj, form, change):
-
+        """
+        Parse the post's content as markdown and create an excerpt if required.
+        """
         # Split the tags by any of ;,| and join again using ,. Lowercase values
         tags_processed = filter(None, re.split(r'[;,|]', obj.tags))
         tags_processed = ", ".join(
