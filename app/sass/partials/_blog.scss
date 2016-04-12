@@ -105,10 +105,11 @@
  * Index page view.
  */
 #blog-listings {
+  margin-top: 1em;
 
   .blog-listing {
-    padding-bottom: 0.5em;
-    margin-bottom: 0.5em;
+    padding-bottom: 1.5em;
+    margin-bottom: 1.5em;
     border-bottom: 2px solid rgba(200, 200, 200, 0.3);
 
     &:last-child {
@@ -145,11 +146,12 @@
  */
 .blog-tag {
   display: inline-block;
-  color: lighten($color_palette_1, 20%);
-  background-color: lighten($color_palette_1, 60%);
-  border: 1px solid lighten($color_palette_1, 50%);
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.9em;
   margin-right: 2px;
+  padding: 4px 8px;
+  border: 1px solid lighten($color_palette_1, 60%);
+  border-radius: 4px;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  color: rgba($color_palette_1, 0.5);
+  background-color: lighten($color_palette_1, 65%);
 }
