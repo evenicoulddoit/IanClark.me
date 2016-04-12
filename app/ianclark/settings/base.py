@@ -38,7 +38,6 @@ LOCAL_APPS = (
     'blog',
     'experience',
     'about',
-    'tags',
 )
 
 MIDDLEWARE_CLASSES = (
