@@ -116,5 +116,10 @@ SECRET_KEY = os.environ.get(
     "SECRET_KEY", "my$z5f#8qujyl(&4$b=xip9l-a*c$x$&=6jq5@@0n**oa1p&2p"
 )
 
+
+CERTBOT_ID = os.environ.get('CERTBOT_ID', '')
+CERTBOT_KEY = os.environ.get('CERTBOT_KEY', '')
+
+
 # Production environment can append / remove from each
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
